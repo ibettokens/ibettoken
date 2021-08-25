@@ -85,7 +85,7 @@
         </tr>
       </table>
       <br>
-      <div id="create-bet-public-arbitration-section" style="display: none;">
+      <div id="create-bet-public-arbitration-section" *ngIf="bet.betType==0">
         Public Arbitration?
         <div class="switch">
           <label>
@@ -96,7 +96,7 @@
             Public
           </label>
         </div>
-        <div id="create-bet-arbitration-section" style="display:none;">
+        <div id="create-bet-arbitration-section"  *ngIf="bet.arbitratorType==0">
           <span class="bold">Arbitrator Address</span>
           <br>
           <input type="text" id="input-create-bet-arbitrator-address"  [(ngModel)]="bet.arbitrator" name="input-create-bet-arbitrator-address"

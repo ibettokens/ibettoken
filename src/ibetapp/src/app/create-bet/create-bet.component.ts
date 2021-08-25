@@ -79,7 +79,9 @@ formatAMPM(date: any) {
   return strTime;
 }
   createBet(event: any){
- 
+ if(this.bet.betType==1){
+   this.bet.arbitrationType=1;
+ }
 let self = this;
     this.submitting = true;
       this.contractService.createBet(this.bet)
