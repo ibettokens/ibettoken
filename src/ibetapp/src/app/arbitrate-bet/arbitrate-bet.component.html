@@ -1,0 +1,55 @@
+<div id="arbitrate-bet-container" class="container content-container">
+    <h2>Arbitrate Bet</h2>
+    <div class="form-group">
+
+      <br>
+      <div id="arbitrate-bet-bet-details">
+        <input type="hidden" id="arbitrate-bet-bet-key" name="arbitrate-bet-bet-key" value="">
+        <table>
+          <tr>
+            <td colspan="3" style="text-align: center;">
+              <h4 id="arbitrate-bet-event-text">{{bet.eventText}}</h4><br><span id="arbitrate-bet-event-time">{{bet.eventTime}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td id="arbitrate-bet-lose-scenario-title">betcreator will lose if?</td>
+            <td id="arbitrate-bet-lose-scenario-sel1">
+              <label>
+                <input name="outcome" value="CREATOR_LOST" [(ngModel)]="outcome" type="radio" checked />
+                <span id="arbitrate-bet-lose-scenario">{{bet.loseScenario}}</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td id="arbitrate-bet-win-scenario-title">betcreator will win if?</td>
+            <td id="arbitrate-bet-win-scenario-sel2">
+              <label>
+                <input name="outcome" value="CREATOR_WON" [(ngModel)]="outcome" type="radio" checked />
+                <span id="arbitrate-bet-win-scenario">{{bet.winScenario}}</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td id="arbitrate-bet-cancel-scenario-title">this bet will be cancelled if?</td>
+            <td id="arbitrate-bet-cancel-scenario-sel3">
+              <label>
+                <input name="outcome" value="CANCELLED" [(ngModel)]="outcome" type="radio" checked />
+                <span id="arbitrate-bet-cancel-scenario">{{bet.cancelScenario}}</span>
+              </label>
+            </td>
+          </tr>
+        </table>
+        <br>
+        
+          <div *ngIf="!submitting">
+            <button class="btn-arbitrate-bet btn waves-effect waves-light" id="btn-arbitrate-bet" type="button" data-id="5" (click)="arbitrateBet()">Stake and Submit Decision</button>
+          </div>
+          <div *ngIf="submitting" style="margin-left:10px">
+            <mat-spinner [diameter]="50"></mat-spinner>
+          </div>
+      </div>
+
+
+    </div>
+    <br>
+  </div>

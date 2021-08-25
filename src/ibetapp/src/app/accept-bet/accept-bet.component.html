@@ -1,0 +1,57 @@
+<div id="accept-bet-container" class="container content-container">
+    <h2>Accept Bet</h2>
+
+    <div id="accept-bet-bet-details">
+
+      <div class="form-group">
+        <input type="hidden" id="accept-bet-bet-key" [ngModel]="bet.betKey" name="accept-bet-bet-key" value="">
+        <table>
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <h2 id="accept-bet-event-text">{{bet.eventText}}</h2><br><span id="accept-bet-event-time">{{bet.eventTime}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td id="accept-bet-lose-scenario-title" class="bold">
+              <div>betcreator will lose and you will win "<span style="font-weight: normal;"
+                  id="accept-bet-amount">{{bet.amount}}</span> <span style="font-weight: normal;"> IBET coins</span>" if?</div>
+            </td>
+            <td id="accept-bet-lose-scenario">{{bet.loseScenario}}</td>
+          </tr>
+          <tr>
+            <td id="accept-bet-win-scenario-title" class="bold">betcreator will win and you will lose "<span
+                style="font-weight: normal;" id="accept-bet-against-amount">{{bet.betAgainstAmount}}</span> <span
+                style="font-weight: normal;"> IBET coins</span>" if?</td>
+            <td id="accept-bet-win-scenario">{{bet.winScenario}}</td>
+          </tr>
+          <tr>
+            <td id="accept-bet-cancel-scenario-title" class="bold">this bet will be cancelled if?</td>
+            <td id="accept-bet-cancel-scenario">{{bet.cancelScenario}}</td>
+          </tr>
+          <tr>
+            <td class="bold">Escrow Balance (IBET coins)</td>
+            <td id="accept-bet-escrow-balance">{{bet.escrowBalance}}</td>
+          </tr>
+          <tr id="accept-bet-arbitrator-details" style="display: none;">
+            <td class="bold">Arbitration</td>
+            <td>Arbitrator: <span id="accept-bet-arbitrator-name">{{bet.arbitratorName}}</span><br>
+              Address: <span id="accept-bet-arbitrator">{{bet.arbitrator}}</span><br>
+              Arbitrator Commission (% of amount bet): <span id="accept-bet-arbitrator-commission">{{bet.arbitratorCommission}}</span>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <div class=button-div>
+          
+          <div *ngIf="!submitting">
+            <button class="btn-accept-bet btn waves-effect waves-light" id="btn-accept-bet" type="button" data-id="1" (click)="acceptBet()">Accept</button>
+          </div>
+          <div *ngIf="submitting" style="margin-left:10px">
+            <mat-spinner [diameter]="50"></mat-spinner>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+  </div>

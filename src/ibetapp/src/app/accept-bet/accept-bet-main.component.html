@@ -1,0 +1,32 @@
+<div id="accept-bet-container" class="container content-container">
+    <div class="form-group" style="width: 700px; float: right;">
+      Bet Key
+      <br>
+      <input type="text" id="input-accept-bet-betkey" [(ngModel)]="searchKey" name="input-accept-bet-betkey" value="" size="50"
+        style="width: 570px;">
+      <a class="waves-effect waves-light btn-small" id="btn-accept-bet-search" (click)="searchBet()"><i
+          class="material-icons left">search</i>Search</a>
+      <br>
+    </div>
+    <h2>Accept Bet</h2>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <td>Bet Key</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody id="open-bets-queue">
+            <tr *ngFor="let bet of openBets">
+                <td class="longIdentifier" id="{{ 'mybetsbetKey' + bet.betKey}}">
+                    <app-long-identifier-display [Value]="bet.betKey"></app-long-identifier-display>
+                </td>
+                <td>{{bet.eventText}}<br>{{bet.eventTime}}</td>
+                <td><a routerLink="/acceptbet/{{bet.betKey}}">View</a></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

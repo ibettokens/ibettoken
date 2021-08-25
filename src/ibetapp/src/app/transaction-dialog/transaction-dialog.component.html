@@ -1,0 +1,14 @@
+<i *ngIf="data.isError==true" class="material-icons" style="color: red; float: left; padding: 3px;">{{data.isError? 'error':'check_circle'}}</i>
+<i *ngIf="data.isError==undefined || data.isError==false" class="material-icons" style="color: green; float: left; padding: 3px;">{{data.isError? 'error':'check_circle'}}</i>
+    
+<h2 mat-dialog-title>{{data.title}}</h2>
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+  <div *ngIf="data.hash!=null && data.hash.length>0">
+  <b>Transaction Hash#</b>
+  <app-long-identifier-display [Value]="data.hash"></app-long-identifier-display>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" cdkFocusInitial>Ok</button>
+</div>

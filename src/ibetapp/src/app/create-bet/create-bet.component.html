@@ -1,0 +1,139 @@
+<div id="create-bet-container" class="container content-container">
+    <h2>Create Bet</h2>
+    <div class="form-group">
+      Bet Type?
+      <div class="switch">
+        <label>
+          Private
+          <input [(ngModel)]="bet.betType" id="input-create-bet-bet-type" name="input-create-bet-bet-type" type="checkbox" checked="true">
+          <span class="lever"></span>
+          Public
+        </label>
+      </div>
+      <br>
+      <b>Bet Event</b>
+      <br>
+      <input [(ngModel)]="bet.eventText"  type="text" id="input-create-bet-event-text" name="input-create-bet-event-text"
+        placeholder="Whoola vs Whooli match today" maxlength="255"><br>
+      <div class="row">
+        <div class="col" style="line-height: 46px;">
+          I win
+        </div>
+        <div class="col" style="line-height: 46px;">
+          <input  [(ngModel)]="bet.amount"  class="input-field" type="number" id="input-create-bet-amount" name="input-create-bet-amount"
+            placeholder="10000">
+        </div>
+        <div class="col" style="line-height: 46px;">
+          IBET coins if
+        </div>
+        <div class="col">
+          <input type="text"  [(ngModel)]="bet.winScenario"  id="input-create-bet-win-scenario" name="input-create-bet-win-scenario"
+            placeholder="Whoola Wins" style="line-height: 46px;"  maxlength="255">
+        </div>
+        <div class="col">
+          .
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="line-height: 46px;">
+          I lose
+        </div>
+        <div class="col" style="line-height: 46px;">
+          <input class="input-field" [(ngModel)]="bet.betAgainstAmount" type="number" id="input-create-bet-against-amount"
+            name="input-create-bet-against-amount" placeholder="10000">
+        </div>
+        <div class="col" style="line-height: 46px;">
+          IBET coins if
+        </div>
+        <div class="col" style="line-height: 46px;">
+          <input type="text" [(ngModel)]="bet.loseScenario" id="input-create-bet-lose-scenario" name="input-create-bet-lose-scenario"
+            placeholder="Whooli Wins" maxlength="255">
+        </div>
+        <div class="col" style="line-height: 46px;">
+          .
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="line-height: 46px;">
+          Bet is Cancelled If
+        </div>
+        <div class="col">
+          <input type="text" [(ngModel)]="bet.cancelScenario" id="input-create-bet-cancel-scenario" name="input-create-bet-cancel-scenario"
+            placeholder="No winner is declared" maxlength="255">
+        </div>
+      </div>
+
+      <b>Bet Decision After Date/Time</b>
+
+      <table>
+        <tr>
+          <td>Date(MM/DD/YYYY)</td>
+          <td>
+            <mat-form-field>
+                <input matInput [ngxMatDatetimePicker]="picker" 
+                                placeholder="Choose a date" 
+                                [(ngModel)]="bet.eventTimeString"
+                                >
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker>
+                </ngx-mat-datetime-picker>
+              </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <div id="create-bet-public-arbitration-section" style="display: none;">
+        Public Arbitration?
+        <div class="switch">
+          <label>
+            Private
+            <input id="input-create-bet-arbitration-type"   [(ngModel)]="bet.arbitratorType" name="input-create-bet-arbitration-type" type="checkbox"
+              checked="true">
+            <span class="lever"></span>
+            Public
+          </label>
+        </div>
+        <div id="create-bet-arbitration-section" style="display:none;">
+          <span class="bold">Arbitrator Address</span>
+          <br>
+          <input type="text" id="input-create-bet-arbitrator-address"  [(ngModel)]="bet.arbitrator" name="input-create-bet-arbitrator-address"
+            placeholder="0x0d1d4e623D10F9FBA5Db85830F7d3839406C5AF2" size="50" value=""><br>
+          Arbitrator Name
+          <br>
+          <input type="text" id="input-create-bet-arbitrator-name"  [(ngModel)]="bet.arbitratorName" name="input-create-bet-arbitrator-name"
+            placeholder="Joe Abbey" value=""><br>
+          Arbitrator Commission (% of amount bet)
+          <br>
+          <input type="text" id="input-create-bet-arbitrator-commission"  [(ngModel)]="bet.arbitratorCommission" name="input-create-bet-arbitrator-commission"
+            style="width:20%" placeholder="0.50" value="">% of (<span id="amount-display">amount</span>)
+        </div>
+      </div>
+      <br>
+      <div class=button-div>
+     
+          <div *ngIf="!submitting">
+            <button class="btn-create-bet btn waves-effect waves-light" id="btn-create-bet" type="button" data-id="9" (click)="createBet($event)">Create
+                <i class="material-icons right">send</i></button>
+          </div>
+          <div *ngIf="submitting" style="margin-left:10px">
+            <mat-spinner [diameter]="50"></mat-spinner>
+          </div>
+      </div>
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Bet Creation</h4>
+          <p>A transaction to create a bet has been submitted to blockchain. This can take a while depending on
+            network's congestion. Once this bet has been successfullt recorded onto the blockchain, you will see your
+            bet under "my bets".</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>

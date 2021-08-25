@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~material-design-icons-iconfont/dist/material-design-icons.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body {  font-family: 'Prompt', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main-container {
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+
+    section {
+        flex: 1;
+    }
+}
+
+.menu-spacer{
+    flex: 1 1 auto; 
+}
+
+.icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+      font-size: inherit;
+  }
+  
+  .content-container{
+    min-height: 800px;
+  }
+  
+  .brand-logo{
+  font-family: monospace;
+  font-weight: bold;
+  }
+  
+  .bold{
+    font-weight:bold;
+  }
+  
+  .longIdentifiercopy{
+    margin-left: 10px;
+    cursor:pointer;
+  }
+  
+  .gmtWatch{
+    color: black;
+  }
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+h1{
+  vertical-align: middle;
+  font-weight: bold;
+  height: 100px  !important;
+  display: flex;
+  justify-content: center;
+
+}
+  h2{
+    // font-family: cursive;
+  }

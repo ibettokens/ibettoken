@@ -1,0 +1,29 @@
+<div id="my-bets-container" class="container content-container">
+    <h2>My Bets</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Bet Key</td>
+                <td>Event</td>
+                <td>Role</td>
+                <td>Status</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="my-bets">
+            <tr *ngFor="let bet of mybets">
+                <td class="longIdentifier" id="{{ 'mybetsbetKey' + bet.betKey}}">
+                    <app-long-identifier-display [Value]="bet.betKey"></app-long-identifier-display>
+                </td>
+                <td>{{bet.eventText}}<br>{{bet.eventTime}}</td>
+                <td>{{bet.role}}</td>
+                <td>{{bet.status}}</td>
+                <td *ngIf="bet.status == 'WaitingArbitration' && bet.eventTimePassed == true"><a href="javascript:void(0);" id="{{ 'link' + 'bet.betKey}}'" (click)="requestArbitration(bet.betKey)">Request Arbitration</a></td>
+                <td *ngIf="bet.status == 'Created' && bet.role =='Creator'"><a href="javascript:void(0);" id="{{ 'link' + 'bet.betKey}}'" (click)="cancelBet(bet.betKey)">Cancel Bet</a></td>
+                <td *ngIf="bet.status != 'WaitingArbitration' && !(bet.status == 'Created' && bet.role =='Creator')"></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <br>
+</div>

@@ -1,0 +1,36 @@
+<div id="arbitrate-bet-container" class="container content-container">
+    <h2>Arbitrate Bet</h2>
+    <div *ngIf="isRegisteredAsArbitrator">
+      <table>
+        <thead>
+          <tr>
+            <td>Bet Key</td>
+            <td>Event</td>
+            <td>Type</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody id="my-arbitration-queue">
+            <tr *ngFor="let bet of pendingArbitrations">
+                <td class="longIdentifier" id="{{ 'mybetsbetKey' + bet.betKey}}">
+                    <app-long-identifier-display [Value]="bet.betKey"></app-long-identifier-display>
+                </td>
+                <td>{{bet.eventText}}<br>{{bet.eventTime}}</td>
+                <td>{{bet.arbitrationType}}</td>
+                <td><a href="javascript:void(0);" id="{{ 'link' + 'bet.betKey}}'" routerLink="/arbitratebet/{{bet.betKey}}">View</a></td>
+
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!isRegisteredAsArbitrator">
+      <div *ngIf="!submitting">
+        <button class="btn-arbitrate-bet btn waves-effect waves-light" id="btn-register-arbitrator" type="button" data-id="5" (click)="registerAsArbitrator()">Register As Arbitrator</button>
+      </div>
+      <div *ngIf="submitting" style="margin-left:10px">
+        <mat-spinner [diameter]="50"></mat-spinner>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>

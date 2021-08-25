@@ -1,0 +1,137 @@
+<div id="main-container">
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br /><br />
+      <h1
+        class="header center orange-text"
+        style="vertical-align: middle; font-weight: bold"
+      >
+        <img
+          src="assets/ibetcoins.png"
+          style="width: 100px; margin-right: 20px"
+        />IBET Coins
+      </h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Shared, Distributed, Dispersed</h5>
+      </div>
+
+      <br /><br />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text">
+              <i class="material-icons">flash_on</i>
+            </h2>
+            <h5 class="center">Shared</h5>
+
+            <p class="light">
+              Users of IBET tokens will receive bonus token for sharing it with
+              others. It is designed to proliferate sharing. over all goal is to
+              reach 22 million users.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text">
+              <i class="material-icons">group</i>
+            </h2>
+            <h5 class="center">Distributed</h5>
+
+            <p class="light">
+              Contract owner only owns 1 coin at the beginning. only way to mint
+              new coins is by sharing coins with others. this will continue
+              until max supply token is shared.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text">
+              <i class="material-icons">settings</i>
+            </h2>
+            <h5 class="center">Dispersed</h5>
+
+            <p class="light">
+              IBET coins are designed to be dispered among many users rather
+              than just few people. the are rules in places as "sharing limit
+              within 7 days" and others just to maintain a disperse set of
+              users.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h4>Steps to Earn and Share</h4>
+
+      <mat-list>
+        <!-- <div mat-subheader>Folders</div> -->
+        <mat-list-item style="height: auto" title="Hello">
+          <span class="material-icons" style="padding-right: 20px;"> looks_one </span>
+          <div>
+            <h5>Request token from faucet</h5>
+            <p>
+              If you already have IBET tokens shared to you by someone, you
+              should be all set and you can skip this step. If you do not have
+              any IBET tokens to start sharing, you can click the button below
+              to request starter token.
+            </p>
+            <div *ngIf="!requestingFromFaucet">
+              <button
+                class="btn-request-from-faucet btn waves-effect waves-light"
+                id="btn-request-from-faucet"
+                type="button"
+                data-id="5"
+                (click)="requestFromFaucet()"
+              >
+                Request coin from faucet
+              </button>
+            </div>
+            <div *ngIf="requestingFromFaucet" style="margin-left: 10px">
+              <mat-spinner [diameter]="50"></mat-spinner>
+            </div>
+            <br>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <!-- <div mat-subheader>Notes</div> -->
+        <mat-list-item style="height: auto">
+          <span class="material-icons" style="padding-right: 20px;"> looks_two </span>
+          <div>
+            <h5>Share token with people you like</h5>
+            <p>
+              Now that you have some tokens in your wallet, you can start
+              sharing this token with your friends and family.
+            </p>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <!-- <div mat-subheader>Notes</div> -->
+        <mat-list-item style="height: auto">
+          <span class="material-icons" style="padding-right: 20px;"> looks_3 </span>
+          <div>
+            <h5>Receive IBET Sharing bonus tokens</h5>
+            <p>
+              Once you have shared this token with new addresses, you will
+              receive sharing BONUS IBET tokens.
+            </p>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <br /><br />
+  </div>
+</div>
