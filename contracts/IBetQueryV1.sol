@@ -69,7 +69,7 @@ contract IBetQueryV1 is Ownable, Pausable {
          Lib.Bet memory bet = sureBetData.getBet(betKey);
          if(bet.eventTime > block.timestamp)
          {
-            betsString = Lib.strConcat(betsString, ConversionUtil.bytes32ToString(betKey), ",",ConversionUtil.uintToString(bet.eventTime),",", bet.eventText, "|","","");
+            betsString = Lib.strConcat(betsString, ConversionUtil.bytes32ToString(betKey), ",",ConversionUtil.uintToString(bet.eventTime),",", bet.eventText, "," ,bet.amount,"|");
          }
       }
       return betsString;

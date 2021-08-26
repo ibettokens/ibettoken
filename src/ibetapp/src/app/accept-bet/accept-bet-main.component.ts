@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ContractService } from '../services/contract.service';
 
 @Component({
@@ -9,6 +10,15 @@ import { ContractService } from '../services/contract.service';
 export class AcceptBetMainComponent implements OnInit {
   public searchKey: any;
   public openBets: any[] = [];
+  public selectedDateRange: any;
+  public startDate: any;
+  public endDate: any;
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+  });
+  
   constructor(
     @Inject(ContractService) private contractService: ContractService
   ) {}
@@ -17,7 +27,7 @@ export class AcceptBetMainComponent implements OnInit {
     this.openBets = [];
     let self = this;
     let utcDate = this.contractService.getUTCDate(new Date());
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 30; i++) {
       this.contractService
         .getOpenBets(
           utcDate.getUTCFullYear(),
@@ -47,6 +57,11 @@ export class AcceptBetMainComponent implements OnInit {
         this.openBets.push(bet);
       })
       .catch((error) => {});
+  }
+
+  searchByDate(){
+    console.log(this.startDate);
+    console.log(this.endDate);
   }
 
   addDays(date: Date, num: number) {

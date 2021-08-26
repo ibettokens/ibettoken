@@ -13,7 +13,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { ContractService } from './services/contract.service';
 import { LongIdentifierDisplayComponent } from './long-identifier-display/long-identifier-display.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -28,6 +28,7 @@ import { TransactionDialogComponent } from './transaction-dialog/transaction-dia
 import {MatDialogModule} from '@angular/material/dialog';
 import { IbetCoinsComponent } from './ibet-coins/ibet-coins.component';
 import {MatListModule} from '@angular/material/list';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,9 @@ import {MatListModule} from '@angular/material/list';
       MatSnackBarModule,
       MatProgressSpinnerModule,
       MatDialogModule,
-      MatListModule
+      MatListModule,
+      MatNativeDateModule,
+      ReactiveFormsModule
   ],
   providers: [ContractService],
   bootstrap: [AppComponent]
