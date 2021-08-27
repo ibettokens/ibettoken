@@ -79,7 +79,16 @@
                   "with": "src/environments/environment.matic.ts"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "commonChunk": true,
+              "buildOptimizer": true 
             },
             "development": {
               "buildOptimizer": false,
