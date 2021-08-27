@@ -13,7 +13,7 @@ var BigNumber = require('big-number');
 
 const fs = require('fs');
 
-module.exports = async (deployer) => {
+module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(Lib,  {gas: 8000000000});
     await deployer.deploy(IterableMapping,  {gas: 8000000000});
     await deployer.deploy(DateTime,  {gas: 8000000000});
@@ -64,6 +64,14 @@ module.exports = async (deployer) => {
     await IBetDataInstance.authorizeCaller(IBetArbitrationV1.address);
     await IBetDataInstance.authorizeCaller(IBetEventOracleV1.address);
     await IBetDataInstance.authorizeCaller(IBetQueryV1.address);
+   
+    let account_owner = accounts[0];
+    await IBetInstance.authorizeCaller(account_owner);
+    await IBetInstance.reward(account_owner, BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
+    await IBetInstance.reward(accounts[1], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
+    await IBetInstance.reward(accounts[2], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
+    await IBetInstance.reward(accounts[3], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
+    await IBetInstance.reward(accounts[4], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
 
     fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
     fs.copyFileSync(__dirname + '/../build/contracts/IBetBettingV1.json', __dirname + '/../src/ibetapp/src/assets/IBetBettingV1.json');

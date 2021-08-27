@@ -4013,7 +4013,7 @@
         884
       ],
       "Lib": [
-        6261
+        6265
       ],
       "Ownable": [
         103
@@ -4943,7 +4943,7 @@
         884
       ],
       "Lib": [
-        6261
+        6265
       ],
       "Ownable": [
         103
@@ -5857,14 +5857,79 @@
   },
   "networks": {
     "1629916068624": {
-      "events": {},
+      "events": {
+        "0xcf0ee1271680fe2cb68cf1077a5096027610a4168962db6f88291b22faa8016a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "addr",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amountOfCoins",
+              "type": "uint256"
+            }
+          ],
+          "name": "FaucetDisbursed",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "Paused",
+          "type": "event"
+        },
+        "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "Unpaused",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0x7346d158BcFF8843B671a2a1894bDB7de06E4f17",
-      "transactionHash": "0xa767fc3563b523bc98b65ae18a8c4e0a0137ccb36e85444b34b1f0887d3620b6"
+      "address": "0x7EC94C875F04684beEd24aCeF4f8fc63521dc5F0",
+      "transactionHash": "0x7743582f19b1b338e3be0a50b103ad1c9b47daf69d9c82e160932d205525dab1"
     }
   },
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-25T19:59:59.466Z",
+  "updatedAt": "2021-08-26T22:14:42.472Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

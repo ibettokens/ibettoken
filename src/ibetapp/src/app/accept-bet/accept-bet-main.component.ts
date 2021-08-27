@@ -26,8 +26,12 @@ export class AcceptBetMainComponent implements OnInit {
   ngOnInit(): void {
     this.openBets = [];
     let self = this;
-    let utcDate = this.contractService.getUTCDate(new Date());
-    for (let i = 0; i < 30; i++) {
+    this.startDate = new Date();
+    this.endDate = new Date();
+    this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 30));
+    
+    for (let utcDate = this.contractService.getUTCDate(this.startDate); utcDate < self.endDate; utcDate.setDate(utcDate.getDate() + 1)) {
+     
       this.contractService
         .getOpenBets(
           utcDate.getUTCFullYear(),
@@ -44,12 +48,15 @@ export class AcceptBetMainComponent implements OnInit {
         .catch((error) => {
           console.log(error);
         });
-      utcDate = this.addDays(utcDate, 1);
     }
   }
 
   searchBet() {
-    this.contractService
+    this.openBets = [];
+    let self = this;
+if(this.searchKey != null && this.searchKey.length > 0)
+{
+ this.contractService
       .getBetDetails(this.searchKey)
       .then((bet) => {
         console.log(bet);
@@ -57,11 +64,29 @@ export class AcceptBetMainComponent implements OnInit {
         this.openBets.push(bet);
       })
       .catch((error) => {});
-  }
-
-  searchByDate(){
-    console.log(this.startDate);
-    console.log(this.endDate);
+}else
+{
+for (var d = this.startDate; d <= this.endDate; d.setDate(d.getDate() + 1)) {
+    let utcDate = this.contractService.getUTCDate(new Date(d));
+    this.contractService
+    .getOpenBets(
+      utcDate.getUTCFullYear(),
+      utcDate.getMonth(),
+      utcDate.getDate()
+    )
+    .then((bets) => {
+      if (bets && bets.length > 0) {
+        bets.forEach(bet => {
+          self.openBets.push(Object.assign({},bet));
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+}
+   
   }
 
   addDays(date: Date, num: number) {

@@ -2765,7 +2765,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_struct$_Bet_$5647_memory_ptr_fromMemory",
+            "name": "abi_decode_t_struct$_Bet_$5651_memory_ptr_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4308,7 +4308,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_struct$_Bet_$5647_memory_ptr_fromMemory",
+                          "name": "abi_decode_t_struct$_Bet_$5651_memory_ptr_fromMemory",
                           "nodeType": "YulIdentifier",
                           "src": "6845:52:34"
                         },
@@ -4327,7 +4327,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_struct$_Bet_$5647_memory_ptr_fromMemory",
+            "name": "abi_decode_tuple_t_struct$_Bet_$5651_memory_ptr_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -7553,7 +7553,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_struct$_Bet_$5647_memory_ptr_to_t_struct$_Bet_$5647_memory_ptr_fromStack",
+            "name": "abi_encode_t_struct$_Bet_$5651_memory_ptr_to_t_struct$_Bet_$5651_memory_ptr_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -10511,7 +10511,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_struct$_Bet_$5647_memory_ptr_to_t_struct$_Bet_$5647_memory_ptr_fromStack",
+                      "name": "abi_encode_t_struct$_Bet_$5651_memory_ptr_to_t_struct$_Bet_$5651_memory_ptr_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "20879:85:34"
                     },
@@ -10528,7 +10528,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_Bet_$5647_memory_ptr__to_t_struct$_Bet_$5647_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_Bet_$5651_memory_ptr__to_t_struct$_Bet_$5651_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -15803,7 +15803,7 @@
           }
         ]
       },
-      "contents": "{\n\n    function abi_decode_available_length_t_string_memory_ptr_fromMemory(src, length, end) -> array {\n        array := allocate_memory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert_error_987264b3b1d58a9c7f8255e93e81c77d86d6299019c33110a076957a3e06e2ae() }\n        copy_memory_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_t_bool_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    function abi_decode_t_bytes32(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_bytes32(value)\n    }\n\n    function abi_decode_t_bytes32_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bytes32(value)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr_fromMemory(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert_error_1b9f4a0a5773e33b91aa01db23bf8c55fce1411167c872835e7fa00a4f17d46d() }\n        let length := mload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr_fromMemory(add(offset, 0x20), length, end)\n    }\n\n    // struct Lib.Bet\n    function abi_decode_t_struct$_Bet_$5647_memory_ptr_fromMemory(headStart, end) -> value {\n        if slt(sub(end, headStart), 0x0140) { revert_error_3538a459e4a0eb828f1aed5ebe5dc96fe59620a31d9b33e41259bb820cae769f() }\n        value := allocate_memory(0x0140)\n\n        {\n            // version\n\n            let offset := 0\n\n            mstore(add(value, 0x00), abi_decode_t_uint16_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // betKey\n\n            let offset := 32\n\n            mstore(add(value, 0x20), abi_decode_t_bytes32_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // creator\n\n            let offset := 64\n\n            mstore(add(value, 0x40), abi_decode_t_address_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // eventText\n\n            let offset := mload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert_error_5e8f644817bc4960744f35c15999b6eff64ae702f94b1c46297cfd4e1aec2421() }\n\n            mstore(add(value, 0x60), abi_decode_t_string_memory_ptr_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // eventTime\n\n            let offset := 128\n\n            mstore(add(value, 0x80), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // betType\n\n            let offset := 160\n\n            mstore(add(value, 0xa0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // arbitrationType\n\n            let offset := 192\n\n            mstore(add(value, 0xc0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // status\n\n            let offset := 224\n\n            mstore(add(value, 0xe0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // amount\n\n            let offset := 256\n\n            mstore(add(value, 0x0100), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // escrowBalance\n\n            let offset := 288\n\n            mstore(add(value, 0x0120), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n    }\n\n    function abi_decode_t_uint16_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint16(value)\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_t_uint32(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint32(value)\n    }\n\n    function abi_decode_t_uint32_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint32(value)\n    }\n\n    function abi_decode_t_uint8_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint8(value)\n    }\n\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bool_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bool_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bytes32(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bytes32(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bytes32_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bytes32_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptr_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := mload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() }\n\n            value0 := abi_decode_t_string_memory_ptr_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_struct$_Bet_$5647_memory_ptr_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := mload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() }\n\n            value0 := abi_decode_t_struct$_Bet_$5647_memory_ptr_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint256_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint32(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint32(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint32_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint32_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_address_to_t_address(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_nonPadded_inplace_fromStack(value, pos) {\n        mstore(pos, leftAlign_t_address(cleanup_t_address(value)))\n    }\n\n    function abi_encode_t_bool_to_t_bool_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32(value, pos) {\n        mstore(pos, cleanup_t_bytes32(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bytes32(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value, pos) {\n        mstore(pos, leftAlign_t_bytes32(cleanup_t_bytes32(value)))\n    }\n\n    function abi_encode_t_rational_1_by_1_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, convert_t_rational_1_by_1_to_t_uint256(value))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack_library(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack_library(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 20)\n        store_literal_in_memory_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 38)\n        store_literal_in_memory_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 16)\n        store_literal_in_memory_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 25)\n        store_literal_in_memory_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 32)\n        store_literal_in_memory_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe(pos)\n        end := add(pos, 32)\n    }\n\n    // struct Lib.Bet -> struct Lib.Bet\n    function abi_encode_t_struct$_Bet_$5647_memory_ptr_to_t_struct$_Bet_$5647_memory_ptr_fromStack(value, pos)  -> end  {\n        let tail := add(pos, 0x0140)\n\n        {\n            // version\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_uint16_to_t_uint16(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // betKey\n\n            let memberValue0 := mload(add(value, 0x20))\n            abi_encode_t_bytes32_to_t_bytes32(memberValue0, add(pos, 0x20))\n        }\n\n        {\n            // creator\n\n            let memberValue0 := mload(add(value, 0x40))\n            abi_encode_t_address_to_t_address(memberValue0, add(pos, 0x40))\n        }\n\n        {\n            // eventText\n\n            let memberValue0 := mload(add(value, 0x60))\n\n            mstore(add(pos, 0x60), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // eventTime\n\n            let memberValue0 := mload(add(value, 0x80))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x80))\n        }\n\n        {\n            // betType\n\n            let memberValue0 := mload(add(value, 0xa0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xa0))\n        }\n\n        {\n            // arbitrationType\n\n            let memberValue0 := mload(add(value, 0xc0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xc0))\n        }\n\n        {\n            // status\n\n            let memberValue0 := mload(add(value, 0xe0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xe0))\n        }\n\n        {\n            // amount\n\n            let memberValue0 := mload(add(value, 0x0100))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x0100))\n        }\n\n        {\n            // escrowBalance\n\n            let memberValue0 := mload(add(value, 0x0120))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x0120))\n        }\n\n        end := tail\n    }\n\n    function abi_encode_t_uint16_to_t_uint16(value, pos) {\n        mstore(pos, cleanup_t_uint16(value))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_uint32_to_t_uint32_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint32(value))\n    }\n\n    function abi_encode_t_uint8_to_t_uint8(value, pos) {\n        mstore(pos, cleanup_t_uint8(value))\n    }\n\n    function abi_encode_tuple_packed_t_address_t_bytes32_t_bytes32__to_t_address_t_bytes32_t_bytes32__nonPadded_inplace_fromStack_reversed(pos , value2, value1, value0) -> end {\n\n        abi_encode_t_address_to_t_address_nonPadded_inplace_fromStack(value0,  pos)\n        pos := add(pos, 20)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value1,  pos)\n        pos := add(pos, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value2,  pos)\n        pos := add(pos, 32)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_packed_t_bytes32_t_bytes32__to_t_bytes32_t_bytes32__nonPadded_inplace_fromStack_reversed(pos , value1, value0) -> end {\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value0,  pos)\n        pos := add(pos, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value1,  pos)\n        pos := add(pos, 32)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_address_t_uint256__to_t_address_t_uint256__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bool_to_t_bool_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_bytes32__to_t_bytes32__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_bytes32_t_rational_1_by_1__to_t_bytes32_t_bytes32_t_uint256__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_rational_1_by_1_to_t_uint256_fromStack(value2,  add(headStart, 64))\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_string_memory_ptr__to_t_bytes32_t_string_memory_ptr__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value1,  tail)\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_string_memory_ptr_t_string_memory_ptr__to_t_bytes32_t_string_memory_ptr_t_string_memory_ptr__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value1,  tail)\n\n        mstore(add(headStart, 64), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value2,  tail)\n\n    }\n\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_library_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack_library(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_Bet_$5647_memory_ptr__to_t_struct$_Bet_$5647_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_Bet_$5647_memory_ptr_to_t_struct$_Bet_$5647_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_uint32__to_t_uint32__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_uint32_to_t_uint32_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_uint32_t_bytes32__to_t_uint32_t_bytes32__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_uint32_to_t_uint32_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function allocate_memory(size) -> memPtr {\n        memPtr := allocate_unbounded()\n        finalize_allocation(memPtr, size)\n    }\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := round_up_to_mul_of_32(length)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack_library(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function checked_add_t_uint256(x, y) -> sum {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        // overflow, if x > (maxValue - y)\n        if gt(x, sub(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, y)) { panic_error_0x11() }\n\n        sum := add(x, y)\n    }\n\n    function checked_add_t_uint8(x, y) -> sum {\n        x := cleanup_t_uint8(x)\n        y := cleanup_t_uint8(y)\n\n        // overflow, if x > (maxValue - y)\n        if gt(x, sub(0xff, y)) { panic_error_0x11() }\n\n        sum := add(x, y)\n    }\n\n    function checked_div_t_uint256(x, y) -> r {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n        if iszero(y) { panic_error_0x12() }\n\n        r := div(x, y)\n    }\n\n    function checked_mul_t_uint256(x, y) -> product {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        // overflow, if x != 0 and y > (maxValue / x)\n        if and(iszero(iszero(x)), gt(y, div(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, x))) { panic_error_0x11() }\n\n        product := mul(x, y)\n    }\n\n    function checked_sub_t_uint256(x, y) -> diff {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        if lt(x, y) { panic_error_0x11() }\n\n        diff := sub(x, y)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function cleanup_t_bytes32(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint16(value) -> cleaned {\n        cleaned := and(value, 0xffff)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint32(value) -> cleaned {\n        cleaned := and(value, 0xffffffff)\n    }\n\n    function cleanup_t_uint8(value) -> cleaned {\n        cleaned := and(value, 0xff)\n    }\n\n    function convert_t_rational_1_by_1_to_t_uint256(value) -> converted {\n        converted := cleanup_t_uint256(value)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function finalize_allocation(memPtr, size) {\n        let newFreePtr := add(memPtr, round_up_to_mul_of_32(size))\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function increment_t_uint8(value) -> ret {\n        value := cleanup_t_uint8(value)\n        if eq(value, 0xff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function leftAlign_t_address(value) -> aligned {\n        aligned := leftAlign_t_uint160(value)\n    }\n\n    function leftAlign_t_bytes32(value) -> aligned {\n        aligned := value\n    }\n\n    function leftAlign_t_uint160(value) -> aligned {\n        aligned := shift_left_96(value)\n    }\n\n    function mod_t_uint256(x, y) -> r {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n        if iszero(y) { panic_error_0x12() }\n        r := mod(x, y)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x12() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x12)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x21() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x32() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function revert_error_1b9f4a0a5773e33b91aa01db23bf8c55fce1411167c872835e7fa00a4f17d46d() {\n        revert(0, 0)\n    }\n\n    function revert_error_3538a459e4a0eb828f1aed5ebe5dc96fe59620a31d9b33e41259bb820cae769f() {\n        revert(0, 0)\n    }\n\n    function revert_error_5e8f644817bc4960744f35c15999b6eff64ae702f94b1c46297cfd4e1aec2421() {\n        revert(0, 0)\n    }\n\n    function revert_error_987264b3b1d58a9c7f8255e93e81c77d86d6299019c33110a076957a3e06e2ae() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function shift_left_96(value) -> newValue {\n        newValue :=\n\n        mul(value, 0x01000000000000000000000000)\n\n    }\n\n    function store_literal_in_memory_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a(memPtr) {\n\n        mstore(add(memPtr, 0), \"Pausable: not paused\")\n\n    }\n\n    function store_literal_in_memory_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe(memPtr) {\n\n        mstore(add(memPtr, 0), \"Ownable: new owner is the zero a\")\n\n        mstore(add(memPtr, 32), \"ddress\")\n\n    }\n\n    function store_literal_in_memory_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a(memPtr) {\n\n        mstore(add(memPtr, 0), \"Pausable: paused\")\n\n    }\n\n    function store_literal_in_memory_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb(memPtr) {\n\n        mstore(add(memPtr, 0), \"Event Time has not passed\")\n\n    }\n\n    function store_literal_in_memory_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe(memPtr) {\n\n        mstore(add(memPtr, 0), \"Ownable: caller is not the owner\")\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bytes32(value) {\n        if iszero(eq(value, cleanup_t_bytes32(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint16(value) {\n        if iszero(eq(value, cleanup_t_uint16(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint32(value) {\n        if iszero(eq(value, cleanup_t_uint32(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint8(value) {\n        if iszero(eq(value, cleanup_t_uint8(value))) { revert(0, 0) }\n    }\n\n}\n",
+      "contents": "{\n\n    function abi_decode_available_length_t_string_memory_ptr_fromMemory(src, length, end) -> array {\n        array := allocate_memory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert_error_987264b3b1d58a9c7f8255e93e81c77d86d6299019c33110a076957a3e06e2ae() }\n        copy_memory_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_t_bool_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    function abi_decode_t_bytes32(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_bytes32(value)\n    }\n\n    function abi_decode_t_bytes32_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bytes32(value)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr_fromMemory(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert_error_1b9f4a0a5773e33b91aa01db23bf8c55fce1411167c872835e7fa00a4f17d46d() }\n        let length := mload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr_fromMemory(add(offset, 0x20), length, end)\n    }\n\n    // struct Lib.Bet\n    function abi_decode_t_struct$_Bet_$5651_memory_ptr_fromMemory(headStart, end) -> value {\n        if slt(sub(end, headStart), 0x0140) { revert_error_3538a459e4a0eb828f1aed5ebe5dc96fe59620a31d9b33e41259bb820cae769f() }\n        value := allocate_memory(0x0140)\n\n        {\n            // version\n\n            let offset := 0\n\n            mstore(add(value, 0x00), abi_decode_t_uint16_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // betKey\n\n            let offset := 32\n\n            mstore(add(value, 0x20), abi_decode_t_bytes32_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // creator\n\n            let offset := 64\n\n            mstore(add(value, 0x40), abi_decode_t_address_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // eventText\n\n            let offset := mload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert_error_5e8f644817bc4960744f35c15999b6eff64ae702f94b1c46297cfd4e1aec2421() }\n\n            mstore(add(value, 0x60), abi_decode_t_string_memory_ptr_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // eventTime\n\n            let offset := 128\n\n            mstore(add(value, 0x80), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // betType\n\n            let offset := 160\n\n            mstore(add(value, 0xa0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // arbitrationType\n\n            let offset := 192\n\n            mstore(add(value, 0xc0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // status\n\n            let offset := 224\n\n            mstore(add(value, 0xe0), abi_decode_t_uint8_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // amount\n\n            let offset := 256\n\n            mstore(add(value, 0x0100), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n        {\n            // escrowBalance\n\n            let offset := 288\n\n            mstore(add(value, 0x0120), abi_decode_t_uint256_fromMemory(add(headStart, offset), end))\n\n        }\n\n    }\n\n    function abi_decode_t_uint16_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint16(value)\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_t_uint32(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint32(value)\n    }\n\n    function abi_decode_t_uint32_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint32(value)\n    }\n\n    function abi_decode_t_uint8_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint8(value)\n    }\n\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bool_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bool_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bytes32(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bytes32(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_bytes32_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bytes32_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptr_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := mload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() }\n\n            value0 := abi_decode_t_string_memory_ptr_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_struct$_Bet_$5651_memory_ptr_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := mload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() }\n\n            value0 := abi_decode_t_struct$_Bet_$5651_memory_ptr_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint256_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint32(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint32(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_uint32_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint32_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_address_to_t_address(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_nonPadded_inplace_fromStack(value, pos) {\n        mstore(pos, leftAlign_t_address(cleanup_t_address(value)))\n    }\n\n    function abi_encode_t_bool_to_t_bool_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32(value, pos) {\n        mstore(pos, cleanup_t_bytes32(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bytes32(value))\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value, pos) {\n        mstore(pos, leftAlign_t_bytes32(cleanup_t_bytes32(value)))\n    }\n\n    function abi_encode_t_rational_1_by_1_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, convert_t_rational_1_by_1_to_t_uint256(value))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack_library(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack_library(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 20)\n        store_literal_in_memory_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 38)\n        store_literal_in_memory_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 16)\n        store_literal_in_memory_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 25)\n        store_literal_in_memory_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 32)\n        store_literal_in_memory_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe(pos)\n        end := add(pos, 32)\n    }\n\n    // struct Lib.Bet -> struct Lib.Bet\n    function abi_encode_t_struct$_Bet_$5651_memory_ptr_to_t_struct$_Bet_$5651_memory_ptr_fromStack(value, pos)  -> end  {\n        let tail := add(pos, 0x0140)\n\n        {\n            // version\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_uint16_to_t_uint16(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // betKey\n\n            let memberValue0 := mload(add(value, 0x20))\n            abi_encode_t_bytes32_to_t_bytes32(memberValue0, add(pos, 0x20))\n        }\n\n        {\n            // creator\n\n            let memberValue0 := mload(add(value, 0x40))\n            abi_encode_t_address_to_t_address(memberValue0, add(pos, 0x40))\n        }\n\n        {\n            // eventText\n\n            let memberValue0 := mload(add(value, 0x60))\n\n            mstore(add(pos, 0x60), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // eventTime\n\n            let memberValue0 := mload(add(value, 0x80))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x80))\n        }\n\n        {\n            // betType\n\n            let memberValue0 := mload(add(value, 0xa0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xa0))\n        }\n\n        {\n            // arbitrationType\n\n            let memberValue0 := mload(add(value, 0xc0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xc0))\n        }\n\n        {\n            // status\n\n            let memberValue0 := mload(add(value, 0xe0))\n            abi_encode_t_uint8_to_t_uint8(memberValue0, add(pos, 0xe0))\n        }\n\n        {\n            // amount\n\n            let memberValue0 := mload(add(value, 0x0100))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x0100))\n        }\n\n        {\n            // escrowBalance\n\n            let memberValue0 := mload(add(value, 0x0120))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x0120))\n        }\n\n        end := tail\n    }\n\n    function abi_encode_t_uint16_to_t_uint16(value, pos) {\n        mstore(pos, cleanup_t_uint16(value))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_uint32_to_t_uint32_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint32(value))\n    }\n\n    function abi_encode_t_uint8_to_t_uint8(value, pos) {\n        mstore(pos, cleanup_t_uint8(value))\n    }\n\n    function abi_encode_tuple_packed_t_address_t_bytes32_t_bytes32__to_t_address_t_bytes32_t_bytes32__nonPadded_inplace_fromStack_reversed(pos , value2, value1, value0) -> end {\n\n        abi_encode_t_address_to_t_address_nonPadded_inplace_fromStack(value0,  pos)\n        pos := add(pos, 20)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value1,  pos)\n        pos := add(pos, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value2,  pos)\n        pos := add(pos, 32)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_packed_t_bytes32_t_bytes32__to_t_bytes32_t_bytes32__nonPadded_inplace_fromStack_reversed(pos , value1, value0) -> end {\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value0,  pos)\n        pos := add(pos, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_nonPadded_inplace_fromStack(value1,  pos)\n        pos := add(pos, 32)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_address_t_uint256__to_t_address_t_uint256__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bool_to_t_bool_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_bytes32__to_t_bytes32__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_bytes32_t_rational_1_by_1__to_t_bytes32_t_bytes32_t_uint256__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_rational_1_by_1_to_t_uint256_fromStack(value2,  add(headStart, 64))\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_string_memory_ptr__to_t_bytes32_t_string_memory_ptr__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value1,  tail)\n\n    }\n\n    function abi_encode_tuple_t_bytes32_t_string_memory_ptr_t_string_memory_ptr__to_t_bytes32_t_string_memory_ptr_t_string_memory_ptr__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value1,  tail)\n\n        mstore(add(headStart, 64), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value2,  tail)\n\n    }\n\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_library_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack_library(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_Bet_$5651_memory_ptr__to_t_struct$_Bet_$5651_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_Bet_$5651_memory_ptr_to_t_struct$_Bet_$5651_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_uint32__to_t_uint32__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_uint32_to_t_uint32_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_uint32_t_bytes32__to_t_uint32_t_bytes32__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_uint32_to_t_uint32_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function allocate_memory(size) -> memPtr {\n        memPtr := allocate_unbounded()\n        finalize_allocation(memPtr, size)\n    }\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := round_up_to_mul_of_32(length)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack_library(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function checked_add_t_uint256(x, y) -> sum {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        // overflow, if x > (maxValue - y)\n        if gt(x, sub(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, y)) { panic_error_0x11() }\n\n        sum := add(x, y)\n    }\n\n    function checked_add_t_uint8(x, y) -> sum {\n        x := cleanup_t_uint8(x)\n        y := cleanup_t_uint8(y)\n\n        // overflow, if x > (maxValue - y)\n        if gt(x, sub(0xff, y)) { panic_error_0x11() }\n\n        sum := add(x, y)\n    }\n\n    function checked_div_t_uint256(x, y) -> r {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n        if iszero(y) { panic_error_0x12() }\n\n        r := div(x, y)\n    }\n\n    function checked_mul_t_uint256(x, y) -> product {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        // overflow, if x != 0 and y > (maxValue / x)\n        if and(iszero(iszero(x)), gt(y, div(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, x))) { panic_error_0x11() }\n\n        product := mul(x, y)\n    }\n\n    function checked_sub_t_uint256(x, y) -> diff {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n\n        if lt(x, y) { panic_error_0x11() }\n\n        diff := sub(x, y)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function cleanup_t_bytes32(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint16(value) -> cleaned {\n        cleaned := and(value, 0xffff)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint32(value) -> cleaned {\n        cleaned := and(value, 0xffffffff)\n    }\n\n    function cleanup_t_uint8(value) -> cleaned {\n        cleaned := and(value, 0xff)\n    }\n\n    function convert_t_rational_1_by_1_to_t_uint256(value) -> converted {\n        converted := cleanup_t_uint256(value)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function finalize_allocation(memPtr, size) {\n        let newFreePtr := add(memPtr, round_up_to_mul_of_32(size))\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function increment_t_uint8(value) -> ret {\n        value := cleanup_t_uint8(value)\n        if eq(value, 0xff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function leftAlign_t_address(value) -> aligned {\n        aligned := leftAlign_t_uint160(value)\n    }\n\n    function leftAlign_t_bytes32(value) -> aligned {\n        aligned := value\n    }\n\n    function leftAlign_t_uint160(value) -> aligned {\n        aligned := shift_left_96(value)\n    }\n\n    function mod_t_uint256(x, y) -> r {\n        x := cleanup_t_uint256(x)\n        y := cleanup_t_uint256(y)\n        if iszero(y) { panic_error_0x12() }\n        r := mod(x, y)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x12() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x12)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x21() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x32() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x32)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function revert_error_1b9f4a0a5773e33b91aa01db23bf8c55fce1411167c872835e7fa00a4f17d46d() {\n        revert(0, 0)\n    }\n\n    function revert_error_3538a459e4a0eb828f1aed5ebe5dc96fe59620a31d9b33e41259bb820cae769f() {\n        revert(0, 0)\n    }\n\n    function revert_error_5e8f644817bc4960744f35c15999b6eff64ae702f94b1c46297cfd4e1aec2421() {\n        revert(0, 0)\n    }\n\n    function revert_error_987264b3b1d58a9c7f8255e93e81c77d86d6299019c33110a076957a3e06e2ae() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function shift_left_96(value) -> newValue {\n        newValue :=\n\n        mul(value, 0x01000000000000000000000000)\n\n    }\n\n    function store_literal_in_memory_0d1d997348c4b502650619e51f7d09f80514d98b6993be5051d07f703984619a(memPtr) {\n\n        mstore(add(memPtr, 0), \"Pausable: not paused\")\n\n    }\n\n    function store_literal_in_memory_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe(memPtr) {\n\n        mstore(add(memPtr, 0), \"Ownable: new owner is the zero a\")\n\n        mstore(add(memPtr, 32), \"ddress\")\n\n    }\n\n    function store_literal_in_memory_68571e1369f7a6dcdcd736cb0343b35a58ed0f64d245c2ed839c98d412744f8a(memPtr) {\n\n        mstore(add(memPtr, 0), \"Pausable: paused\")\n\n    }\n\n    function store_literal_in_memory_6bc48ba015e7bae67a0a23db25853a477575166eb3fec168325a0f4d985d3fdb(memPtr) {\n\n        mstore(add(memPtr, 0), \"Event Time has not passed\")\n\n    }\n\n    function store_literal_in_memory_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe(memPtr) {\n\n        mstore(add(memPtr, 0), \"Ownable: caller is not the owner\")\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bytes32(value) {\n        if iszero(eq(value, cleanup_t_bytes32(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint16(value) {\n        if iszero(eq(value, cleanup_t_uint16(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint32(value) {\n        if iszero(eq(value, cleanup_t_uint32(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint8(value) {\n        if iszero(eq(value, cleanup_t_uint8(value))) { revert(0, 0) }\n    }\n\n}\n",
       "id": 34,
       "language": "Yul",
       "name": "#utility.yul"
@@ -15820,7 +15820,7 @@
         906
       ],
       "ConversionUtil": [
-        6790
+        6794
       ],
       "ERC20": [
         781
@@ -15841,10 +15841,10 @@
         884
       ],
       "IterableMapping": [
-        6992
+        6996
       ],
       "Lib": [
-        6261
+        6265
       ],
       "Ownable": [
         103
@@ -15932,7 +15932,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 5019,
-        "sourceUnit": 8491,
+        "sourceUnit": 8495,
         "src": "264:48:12",
         "symbolAliases": [
           {
@@ -16462,7 +16462,7 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                         "typeString": "struct Lib.Bet"
                       },
                       "typeName": {
@@ -16472,13 +16472,13 @@
                           "id": 4730,
                           "name": "Lib.Bet",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 5647,
+                          "referencedDeclaration": 5651,
                           "src": "847:7:12"
                         },
-                        "referencedDeclaration": 5647,
+                        "referencedDeclaration": 5651,
                         "src": "847:7:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_storage_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_storage_ptr",
                           "typeString": "struct Lib.Bet"
                         }
                       },
@@ -16530,7 +16530,7 @@
                       "referencedDeclaration": 4021,
                       "src": "868:18:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_struct$_Bet_$5647_memory_ptr_$",
+                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_struct$_Bet_$5651_memory_ptr_$",
                         "typeString": "function (bytes32) view external returns (struct Lib.Bet memory)"
                       }
                     },
@@ -16545,7 +16545,7 @@
                     "src": "868:26:12",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                      "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                       "typeString": "struct Lib.Bet memory"
                     }
                   },
@@ -16604,7 +16604,7 @@
                                 "referencedDeclaration": 4732,
                                 "src": "926:3:12",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                  "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                   "typeString": "struct Lib.Bet memory"
                                 }
                               },
@@ -16615,7 +16615,7 @@
                               "lValueRequested": false,
                               "memberName": "eventTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 5636,
+                              "referencedDeclaration": 5640,
                               "src": "926:13:12",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -16725,7 +16725,7 @@
                             "referencedDeclaration": 4732,
                             "src": "983:3:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                              "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                               "typeString": "struct Lib.Bet memory"
                             }
                           },
@@ -16736,7 +16736,7 @@
                           "lValueRequested": false,
                           "memberName": "status",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5642,
+                          "referencedDeclaration": 5646,
                           "src": "983:10:12",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
@@ -16754,10 +16754,10 @@
                                   "name": "Lib",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 6261,
+                                  "referencedDeclaration": 6265,
                                   "src": "1004:3:12",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                    "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                     "typeString": "type(library Lib)"
                                   }
                                 },
@@ -16768,10 +16768,10 @@
                                 "lValueRequested": false,
                                 "memberName": "BetStatus",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 5626,
+                                "referencedDeclaration": 5630,
                                 "src": "1004:13:12",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_enum$_BetStatus_$5626_$",
+                                  "typeIdentifier": "t_type$_t_enum$_BetStatus_$5630_$",
                                   "typeString": "type(enum Lib.BetStatus)"
                                 }
                               },
@@ -16782,10 +16782,10 @@
                               "lValueRequested": false,
                               "memberName": "WAITINGARBITRATION",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 5622,
+                              "referencedDeclaration": 5626,
                               "src": "1004:32:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_BetStatus_$5626",
+                                "typeIdentifier": "t_enum$_BetStatus_$5630",
                                 "typeString": "enum Lib.BetStatus"
                               }
                             }
@@ -16793,7 +16793,7 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_enum$_BetStatus_$5626",
+                                "typeIdentifier": "t_enum$_BetStatus_$5630",
                                 "typeString": "enum Lib.BetStatus"
                               }
                             ],
@@ -16954,10 +16954,10 @@
                               "name": "Lib",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 6261,
+                              "referencedDeclaration": 6265,
                               "src": "1170:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                 "typeString": "type(library Lib)"
                               }
                             },
@@ -16968,7 +16968,7 @@
                             "lValueRequested": false,
                             "memberName": "PROPERTIES_ARBITRATOR_COMMISSION",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5699,
+                            "referencedDeclaration": 5703,
                             "src": "1170:36:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -17041,10 +17041,10 @@
                         "name": "ConversionUtil",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 6790,
+                        "referencedDeclaration": 6794,
                         "src": "1107:14:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6790_$",
+                          "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6794_$",
                           "typeString": "type(library ConversionUtil)"
                         }
                       },
@@ -17055,7 +17055,7 @@
                       "lValueRequested": false,
                       "memberName": "stringToUint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6424,
+                      "referencedDeclaration": 6428,
                       "src": "1107:27:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_delegatecall_pure$_t_string_memory_ptr_$returns$_t_uint256_$",
@@ -17249,7 +17249,7 @@
                                           "referencedDeclaration": 4732,
                                           "src": "1237:3:12",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                            "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                             "typeString": "struct Lib.Bet memory"
                                           }
                                         },
@@ -17260,7 +17260,7 @@
                                         "lValueRequested": false,
                                         "memberName": "amount",
                                         "nodeType": "MemberAccess",
-                                        "referencedDeclaration": 5644,
+                                        "referencedDeclaration": 5648,
                                         "src": "1237:10:12",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
@@ -17501,7 +17501,7 @@
                               "referencedDeclaration": 4732,
                               "src": "1440:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                 "typeString": "struct Lib.Bet memory"
                               }
                             },
@@ -17512,7 +17512,7 @@
                             "lValueRequested": true,
                             "memberName": "escrowBalance",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5646,
+                            "referencedDeclaration": 5650,
                             "src": "1440:17:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -17552,7 +17552,7 @@
                                   "referencedDeclaration": 4732,
                                   "src": "1460:3:12",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                    "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                     "typeString": "struct Lib.Bet memory"
                                   }
                                 },
@@ -17563,7 +17563,7 @@
                                 "lValueRequested": false,
                                 "memberName": "escrowBalance",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 5646,
+                                "referencedDeclaration": 5650,
                                 "src": "1460:17:12",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -17834,7 +17834,7 @@
                         "referencedDeclaration": 4732,
                         "src": "1574:3:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       },
@@ -17845,7 +17845,7 @@
                       "lValueRequested": true,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5642,
+                      "referencedDeclaration": 5646,
                       "src": "1574:10:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -17863,10 +17863,10 @@
                               "name": "Lib",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 6261,
+                              "referencedDeclaration": 6265,
                               "src": "1593:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                 "typeString": "type(library Lib)"
                               }
                             },
@@ -17877,10 +17877,10 @@
                             "lValueRequested": false,
                             "memberName": "BetStatus",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5626,
+                            "referencedDeclaration": 5630,
                             "src": "1593:13:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_BetStatus_$5626_$",
+                              "typeIdentifier": "t_type$_t_enum$_BetStatus_$5630_$",
                               "typeString": "type(enum Lib.BetStatus)"
                             }
                           },
@@ -17891,10 +17891,10 @@
                           "lValueRequested": false,
                           "memberName": "INARBITRATION",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5623,
+                          "referencedDeclaration": 5627,
                           "src": "1593:27:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_BetStatus_$5626",
+                            "typeIdentifier": "t_enum$_BetStatus_$5630",
                             "typeString": "enum Lib.BetStatus"
                           }
                         }
@@ -17902,7 +17902,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_enum$_BetStatus_$5626",
+                            "typeIdentifier": "t_enum$_BetStatus_$5630",
                             "typeString": "enum Lib.BetStatus"
                           }
                         ],
@@ -17961,7 +17961,7 @@
                         "referencedDeclaration": 4732,
                         "src": "1647:3:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       }
@@ -17969,7 +17969,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       ],
@@ -17995,7 +17995,7 @@
                       "referencedDeclaration": 3928,
                       "src": "1627:19:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_nonpayable$_t_struct$_Bet_$5647_memory_ptr_$returns$_t_bool_$",
+                        "typeIdentifier": "t_function_external_nonpayable$_t_struct$_Bet_$5651_memory_ptr_$returns$_t_bool_$",
                         "typeString": "function (struct Lib.Bet memory) external returns (bool)"
                       }
                     },
@@ -18472,7 +18472,7 @@
                                       "referencedDeclaration": 4732,
                                       "src": "2038:3:12",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                        "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                         "typeString": "struct Lib.Bet memory"
                                       }
                                     },
@@ -18483,7 +18483,7 @@
                                     "lValueRequested": false,
                                     "memberName": "betKey",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 5630,
+                                    "referencedDeclaration": 5634,
                                     "src": "2038:10:12",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_bytes32",
@@ -18974,10 +18974,10 @@
                           "name": "Lib",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 6261,
+                          "referencedDeclaration": 6265,
                           "src": "2334:3:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                            "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                             "typeString": "type(library Lib)"
                           }
                         },
@@ -18988,7 +18988,7 @@
                         "lValueRequested": false,
                         "memberName": "PROPERTIES_PENDING_QUEUE",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 5720,
+                        "referencedDeclaration": 5724,
                         "src": "2334:28:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -19022,10 +19022,10 @@
                             "name": "ConversionUtil",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6790,
+                            "referencedDeclaration": 6794,
                             "src": "2364:14:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6790_$",
+                              "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6794_$",
                               "typeString": "type(library ConversionUtil)"
                             }
                           },
@@ -19036,7 +19036,7 @@
                           "lValueRequested": false,
                           "memberName": "uintToString",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 6355,
+                          "referencedDeclaration": 6359,
                           "src": "2364:27:12",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_string_memory_ptr_$",
@@ -19235,7 +19235,7 @@
                           "referencedDeclaration": 4732,
                           "src": "2500:3:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                            "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                             "typeString": "struct Lib.Bet memory"
                           }
                         },
@@ -19246,7 +19246,7 @@
                         "lValueRequested": false,
                         "memberName": "betKey",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 5630,
+                        "referencedDeclaration": 5634,
                         "src": "2500:10:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -20318,7 +20318,7 @@
         906
       ],
       "ConversionUtil": [
-        6790
+        6794
       ],
       "ERC20": [
         781
@@ -20339,10 +20339,10 @@
         884
       ],
       "IterableMapping": [
-        6992
+        6996
       ],
       "Lib": [
-        6261
+        6265
       ],
       "Ownable": [
         103
@@ -20430,7 +20430,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 5019,
-        "sourceUnit": 8491,
+        "sourceUnit": 8495,
         "src": "264:48:12",
         "symbolAliases": [
           {
@@ -20960,7 +20960,7 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                        "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                         "typeString": "struct Lib.Bet"
                       },
                       "typeName": {
@@ -20970,13 +20970,13 @@
                           "id": 4730,
                           "name": "Lib.Bet",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 5647,
+                          "referencedDeclaration": 5651,
                           "src": "847:7:12"
                         },
-                        "referencedDeclaration": 5647,
+                        "referencedDeclaration": 5651,
                         "src": "847:7:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_storage_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_storage_ptr",
                           "typeString": "struct Lib.Bet"
                         }
                       },
@@ -21028,7 +21028,7 @@
                       "referencedDeclaration": 4021,
                       "src": "868:18:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_struct$_Bet_$5647_memory_ptr_$",
+                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_struct$_Bet_$5651_memory_ptr_$",
                         "typeString": "function (bytes32) view external returns (struct Lib.Bet memory)"
                       }
                     },
@@ -21043,7 +21043,7 @@
                     "src": "868:26:12",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                      "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                       "typeString": "struct Lib.Bet memory"
                     }
                   },
@@ -21102,7 +21102,7 @@
                                 "referencedDeclaration": 4732,
                                 "src": "926:3:12",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                  "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                   "typeString": "struct Lib.Bet memory"
                                 }
                               },
@@ -21113,7 +21113,7 @@
                               "lValueRequested": false,
                               "memberName": "eventTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 5636,
+                              "referencedDeclaration": 5640,
                               "src": "926:13:12",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -21223,7 +21223,7 @@
                             "referencedDeclaration": 4732,
                             "src": "983:3:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                              "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                               "typeString": "struct Lib.Bet memory"
                             }
                           },
@@ -21234,7 +21234,7 @@
                           "lValueRequested": false,
                           "memberName": "status",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5642,
+                          "referencedDeclaration": 5646,
                           "src": "983:10:12",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
@@ -21252,10 +21252,10 @@
                                   "name": "Lib",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 6261,
+                                  "referencedDeclaration": 6265,
                                   "src": "1004:3:12",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                    "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                     "typeString": "type(library Lib)"
                                   }
                                 },
@@ -21266,10 +21266,10 @@
                                 "lValueRequested": false,
                                 "memberName": "BetStatus",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 5626,
+                                "referencedDeclaration": 5630,
                                 "src": "1004:13:12",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_enum$_BetStatus_$5626_$",
+                                  "typeIdentifier": "t_type$_t_enum$_BetStatus_$5630_$",
                                   "typeString": "type(enum Lib.BetStatus)"
                                 }
                               },
@@ -21280,10 +21280,10 @@
                               "lValueRequested": false,
                               "memberName": "WAITINGARBITRATION",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 5622,
+                              "referencedDeclaration": 5626,
                               "src": "1004:32:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_enum$_BetStatus_$5626",
+                                "typeIdentifier": "t_enum$_BetStatus_$5630",
                                 "typeString": "enum Lib.BetStatus"
                               }
                             }
@@ -21291,7 +21291,7 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_enum$_BetStatus_$5626",
+                                "typeIdentifier": "t_enum$_BetStatus_$5630",
                                 "typeString": "enum Lib.BetStatus"
                               }
                             ],
@@ -21452,10 +21452,10 @@
                               "name": "Lib",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 6261,
+                              "referencedDeclaration": 6265,
                               "src": "1170:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                 "typeString": "type(library Lib)"
                               }
                             },
@@ -21466,7 +21466,7 @@
                             "lValueRequested": false,
                             "memberName": "PROPERTIES_ARBITRATOR_COMMISSION",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5699,
+                            "referencedDeclaration": 5703,
                             "src": "1170:36:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -21539,10 +21539,10 @@
                         "name": "ConversionUtil",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 6790,
+                        "referencedDeclaration": 6794,
                         "src": "1107:14:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6790_$",
+                          "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6794_$",
                           "typeString": "type(library ConversionUtil)"
                         }
                       },
@@ -21553,7 +21553,7 @@
                       "lValueRequested": false,
                       "memberName": "stringToUint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6424,
+                      "referencedDeclaration": 6428,
                       "src": "1107:27:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_delegatecall_pure$_t_string_memory_ptr_$returns$_t_uint256_$",
@@ -21747,7 +21747,7 @@
                                           "referencedDeclaration": 4732,
                                           "src": "1237:3:12",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                            "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                             "typeString": "struct Lib.Bet memory"
                                           }
                                         },
@@ -21758,7 +21758,7 @@
                                         "lValueRequested": false,
                                         "memberName": "amount",
                                         "nodeType": "MemberAccess",
-                                        "referencedDeclaration": 5644,
+                                        "referencedDeclaration": 5648,
                                         "src": "1237:10:12",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
@@ -21999,7 +21999,7 @@
                               "referencedDeclaration": 4732,
                               "src": "1440:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                 "typeString": "struct Lib.Bet memory"
                               }
                             },
@@ -22010,7 +22010,7 @@
                             "lValueRequested": true,
                             "memberName": "escrowBalance",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5646,
+                            "referencedDeclaration": 5650,
                             "src": "1440:17:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -22050,7 +22050,7 @@
                                   "referencedDeclaration": 4732,
                                   "src": "1460:3:12",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                    "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                     "typeString": "struct Lib.Bet memory"
                                   }
                                 },
@@ -22061,7 +22061,7 @@
                                 "lValueRequested": false,
                                 "memberName": "escrowBalance",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 5646,
+                                "referencedDeclaration": 5650,
                                 "src": "1460:17:12",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -22332,7 +22332,7 @@
                         "referencedDeclaration": 4732,
                         "src": "1574:3:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       },
@@ -22343,7 +22343,7 @@
                       "lValueRequested": true,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5642,
+                      "referencedDeclaration": 5646,
                       "src": "1574:10:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -22361,10 +22361,10 @@
                               "name": "Lib",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 6261,
+                              "referencedDeclaration": 6265,
                               "src": "1593:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                                "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                                 "typeString": "type(library Lib)"
                               }
                             },
@@ -22375,10 +22375,10 @@
                             "lValueRequested": false,
                             "memberName": "BetStatus",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 5626,
+                            "referencedDeclaration": 5630,
                             "src": "1593:13:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_BetStatus_$5626_$",
+                              "typeIdentifier": "t_type$_t_enum$_BetStatus_$5630_$",
                               "typeString": "type(enum Lib.BetStatus)"
                             }
                           },
@@ -22389,10 +22389,10 @@
                           "lValueRequested": false,
                           "memberName": "INARBITRATION",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5623,
+                          "referencedDeclaration": 5627,
                           "src": "1593:27:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_BetStatus_$5626",
+                            "typeIdentifier": "t_enum$_BetStatus_$5630",
                             "typeString": "enum Lib.BetStatus"
                           }
                         }
@@ -22400,7 +22400,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_enum$_BetStatus_$5626",
+                            "typeIdentifier": "t_enum$_BetStatus_$5630",
                             "typeString": "enum Lib.BetStatus"
                           }
                         ],
@@ -22459,7 +22459,7 @@
                         "referencedDeclaration": 4732,
                         "src": "1647:3:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       }
@@ -22467,7 +22467,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                          "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                           "typeString": "struct Lib.Bet memory"
                         }
                       ],
@@ -22493,7 +22493,7 @@
                       "referencedDeclaration": 3928,
                       "src": "1627:19:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_nonpayable$_t_struct$_Bet_$5647_memory_ptr_$returns$_t_bool_$",
+                        "typeIdentifier": "t_function_external_nonpayable$_t_struct$_Bet_$5651_memory_ptr_$returns$_t_bool_$",
                         "typeString": "function (struct Lib.Bet memory) external returns (bool)"
                       }
                     },
@@ -22970,7 +22970,7 @@
                                       "referencedDeclaration": 4732,
                                       "src": "2038:3:12",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                                        "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                                         "typeString": "struct Lib.Bet memory"
                                       }
                                     },
@@ -22981,7 +22981,7 @@
                                     "lValueRequested": false,
                                     "memberName": "betKey",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 5630,
+                                    "referencedDeclaration": 5634,
                                     "src": "2038:10:12",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_bytes32",
@@ -23472,10 +23472,10 @@
                           "name": "Lib",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 6261,
+                          "referencedDeclaration": 6265,
                           "src": "2334:3:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_Lib_$6261_$",
+                            "typeIdentifier": "t_type$_t_contract$_Lib_$6265_$",
                             "typeString": "type(library Lib)"
                           }
                         },
@@ -23486,7 +23486,7 @@
                         "lValueRequested": false,
                         "memberName": "PROPERTIES_PENDING_QUEUE",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 5720,
+                        "referencedDeclaration": 5724,
                         "src": "2334:28:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -23520,10 +23520,10 @@
                             "name": "ConversionUtil",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6790,
+                            "referencedDeclaration": 6794,
                             "src": "2364:14:12",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6790_$",
+                              "typeIdentifier": "t_type$_t_contract$_ConversionUtil_$6794_$",
                               "typeString": "type(library ConversionUtil)"
                             }
                           },
@@ -23534,7 +23534,7 @@
                           "lValueRequested": false,
                           "memberName": "uintToString",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 6355,
+                          "referencedDeclaration": 6359,
                           "src": "2364:27:12",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_string_memory_ptr_$",
@@ -23733,7 +23733,7 @@
                           "referencedDeclaration": 4732,
                           "src": "2500:3:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Bet_$5647_memory_ptr",
+                            "typeIdentifier": "t_struct$_Bet_$5651_memory_ptr",
                             "typeString": "struct Lib.Bet memory"
                           }
                         },
@@ -23744,7 +23744,7 @@
                         "lValueRequested": false,
                         "memberName": "betKey",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 5630,
+                        "referencedDeclaration": 5634,
                         "src": "2500:10:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -24876,14 +24876,14 @@
         }
       },
       "links": {
-        "ConversionUtil": "0x05f57E317fB8E76FB08435E3Ab1680fF76f0A508"
+        "ConversionUtil": "0x5aD65068503AD876ED3763FC2EA3445DF1C6CA86"
       },
-      "address": "0x1501278c85a03082cAA9677b0C70eC242F9E87d6",
-      "transactionHash": "0x01d28d72c274b522cad3287d340137f27284e19195880c7c8a1c8b691ebbf7a0"
+      "address": "0xDD954d19b1B8530605dF180C2A7ab176d285a50D",
+      "transactionHash": "0x5a23f8e1cbd5e7bd0b93b270d1b55dce12e42a4d732527b3998791ec2f822141"
     }
   },
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-25T19:59:59.457Z",
+  "updatedAt": "2021-08-26T22:14:42.464Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

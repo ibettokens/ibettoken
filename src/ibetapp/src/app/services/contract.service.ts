@@ -435,6 +435,7 @@ export class ContractService {
         betKey: bet[0],
         eventText: bet[2],
         eventTime: new Date(bet[1] * 1000),
+        amount: bet[3] / 1000000000000000000
       });
     }
     return openBets;
