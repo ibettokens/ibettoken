@@ -29,8 +29,9 @@ export class AcceptBetMainComponent implements OnInit {
     this.startDate = new Date();
     this.endDate = new Date();
     this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 30));
-    
+    let counter =0;
     for (let utcDate = this.contractService.getUTCDate(this.startDate); utcDate < self.endDate; utcDate.setDate(utcDate.getDate() + 1)) {
+      //alert(utcDate);
      
       this.contractService
         .getOpenBets(
@@ -42,10 +43,16 @@ export class AcceptBetMainComponent implements OnInit {
           if (bets && bets.length > 0) {
             bets.forEach(bet => {
               self.openBets.push(Object.assign({},bet));
+             
             });
           }
         })
         .catch((error) => {
+          if(counter==0)
+          {
+            counter++;
+            alert(error);
+          }
           console.log(error);
         });
     }
@@ -66,6 +73,7 @@ if(this.searchKey != null && this.searchKey.length > 0)
       .catch((error) => {});
 }else
 {
+  let counter = 0;
 for (var d = this.startDate; d <= this.endDate; d.setDate(d.getDate() + 1)) {
     let utcDate = this.contractService.getUTCDate(new Date(d));
     this.contractService
@@ -82,6 +90,11 @@ for (var d = this.startDate; d <= this.endDate; d.setDate(d.getDate() + 1)) {
       }
     })
     .catch((error) => {
+      if(counter==0)
+          {
+            counter++;
+            alert(error);
+          }
       console.log(error);
     });
 }

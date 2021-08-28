@@ -55,11 +55,16 @@ export class ContractService {
     this.provider = await this.web3Modal.connect(); // set provider
     this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
-    this.accountStatusSource.next(this.accounts[0]);
+    let network = await this.web3js.eth.net.getId();
+    this.accountStatusSource.next({account:this.accounts[0], network: network});
+   
+    console.log('Network:' + network);
     return this.accounts;
   }
 
   async createBet(bet: Bet) {
+    await this.connectAccount();
+
     let amountInCoins = BigNumber(bet.amount)
       .multiply(1000000000000000000)
       .toString();
@@ -91,9 +96,9 @@ export class ContractService {
     properties.push(bet.arbitrator);
     properties.push(formattedCommission);
 
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
@@ -138,10 +143,12 @@ export class ContractService {
   }
 
   async getBetDetails(betkey: string) {
+    await this.connectAccount();
+
     // --- temporarily re-initializating these for the effect file
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetQueryV1.abi,
@@ -173,9 +180,11 @@ export class ContractService {
   }
 
   async acceptBet(betKey: string) {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    await this.connectAccount();
+
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
@@ -207,9 +216,11 @@ export class ContractService {
   }
 
   async arbitrateBet(betKey: string, decisionOutcome: string) {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    await this.connectAccount();
+
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
@@ -240,9 +251,11 @@ export class ContractService {
 
   async awakeArbitrationBet(betKey: string) {
     console.log(betKey);
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    await this.connectAccount();
+
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
         IBetEventOracleV1.abi,
@@ -272,9 +285,11 @@ export class ContractService {
   }
   async cancelBet(betKey: string) {
     console.log(betKey);
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    await this.connectAccount();
+
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
@@ -306,9 +321,10 @@ export class ContractService {
   }
 
   async getMyPendingArbitrations() {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
+    await this.connectAccount();
 
     this.contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
@@ -347,9 +363,11 @@ export class ContractService {
 
   
   async registerAsArbitrator() {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
+
+    await this.connectAccount();
 
     this.contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
@@ -379,9 +397,11 @@ export class ContractService {
   }
 
   async requestFromFaucet() {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
+
+    await this.connectAccount();
 
     this.contract = new this.web3js.eth.Contract(
       IBetFaucetV1.abi,
@@ -411,9 +431,13 @@ export class ContractService {
   }
 
   async getOpenBets(year : number, month : number, day: number) {
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
+
+    await this.connectAccount();
+
+    
 
     this.contract = new this.web3js.eth.Contract(
       IBetQueryV1.abi,
@@ -450,10 +474,12 @@ export class ContractService {
   }
 
   async getMyBets() {
+    await this.connectAccount();
+
     // --- temporarily re-initializating these for the effect file
-    this.provider = await this.web3Modal.connect(); // set provider
-    this.web3js = new Web3(this.provider); // create web3 instance
-    this.accounts = await this.web3js.eth.getAccounts();
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
 
     this.contract = new this.web3js.eth.Contract(
       IBetQueryV1.abi,

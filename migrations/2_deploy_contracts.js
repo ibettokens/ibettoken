@@ -74,40 +74,40 @@ module.exports = async (deployer, network, accounts) => {
     await IBetInstance.reward(accounts[3], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
     await IBetInstance.reward(accounts[4], BigNumber(100000).multiply(1000000000000000000).toString(), { from: account_owner });
 
-    fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetBettingV1.json',
-    JSON.stringify(JSON.parse(
-        fs.readFileSync(__dirname + '/../build/contracts/IBetBettingV1.json', 'utf8')
-        ))
-    , 'utf-8');
+    // fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetBettingV1.json',
+    // JSON.stringify(JSON.parse(
+    //     fs.readFileSync(__dirname + '/../build/contracts/IBetBettingV1.json', 'utf8')
+    //     ))
+    // , 'utf-8');
 
-    fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetArbitrationV1.json',
-    JSON.stringify(JSON.parse(
-        fs.readFileSync(__dirname + '/../build/contracts/IBetArbitrationV1.json', 'utf8')
-        ))
-    , 'utf-8');
+    // fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetArbitrationV1.json',
+    // JSON.stringify(JSON.parse(
+    //     fs.readFileSync(__dirname + '/../build/contracts/IBetArbitrationV1.json', 'utf8')
+    //     ))
+    // , 'utf-8');
 
-    fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetEventOracleV1.json',
-    JSON.stringify(JSON.parse(
-        fs.readFileSync(__dirname + '/../build/contracts/IBetEventOracleV1.json', 'utf8')
-        ))
-    , 'utf-8');
+    // fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetEventOracleV1.json',
+    // JSON.stringify(JSON.parse(
+    //     fs.readFileSync(__dirname + '/../build/contracts/IBetEventOracleV1.json', 'utf8')
+    //     ))
+    // , 'utf-8');
 
-    fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetQueryV1.json',
-    JSON.stringify(JSON.parse(
-        fs.readFileSync(__dirname + '/../build/contracts/IBetQueryV1.json', 'utf8')
-        ))
-    , 'utf-8');
+    // fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetQueryV1.json',
+    // JSON.stringify(JSON.parse(
+    //     fs.readFileSync(__dirname + '/../build/contracts/IBetQueryV1.json', 'utf8')
+    //     ))
+    // , 'utf-8');
 
-    fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetFaucetV1.json',
-    JSON.stringify(JSON.parse(
-        fs.readFileSync(__dirname + '/../build/contracts/IBetFaucetV1.json', 'utf8')
-        ))
-    , 'utf-8');
+    // fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/IBetFaucetV1.json',
+    // JSON.stringify(JSON.parse(
+    //     fs.readFileSync(__dirname + '/../build/contracts/IBetFaucetV1.json', 'utf8')
+    //     ))
+    // , 'utf-8');
 
     fs.writeFileSync(__dirname + '/../src/ibetapp/src/assets/config.json',JSON.stringify(config, null, '\t'), 'utf-8');
-    //fs.copyFileSync(__dirname + '/../build/contracts/IBetBettingV1.json', __dirname + '/../src/ibetapp/src/assets/IBetBettingV1.json');
-    // fs.copyFileSync(__dirname + '/../build/contracts/IBetArbitrationV1.json', __dirname + '/../src/ibetapp/src/assets/IBetArbitrationV1.json');
-    // fs.copyFileSync(__dirname + '/../build/contracts/IBetEventOracleV1.json', __dirname + '/../src/ibetapp/src/assets/IBetEventOracleV1.json');
-    // fs.copyFileSync(__dirname + '/../build/contracts/IBetQueryV1.json', __dirname + '/../src/ibetapp/src/assets/IBetQueryV1.json');
-    // fs.copyFileSync(__dirname + '/../build/contracts/IBetFaucetV1.json', __dirname + '/../src/ibetapp/src/assets/IBetFaucetV1.json');
+    fs.copyFileSync(__dirname + '/../build/contracts/IBetBettingV1.json', __dirname + '/../src/ibetapp/src/assets/IBetBettingV1.json');
+    fs.copyFileSync(__dirname + '/../build/contracts/IBetArbitrationV1.json', __dirname + '/../src/ibetapp/src/assets/IBetArbitrationV1.json');
+    fs.copyFileSync(__dirname + '/../build/contracts/IBetEventOracleV1.json', __dirname + '/../src/ibetapp/src/assets/IBetEventOracleV1.json');
+    fs.copyFileSync(__dirname + '/../build/contracts/IBetQueryV1.json', __dirname + '/../src/ibetapp/src/assets/IBetQueryV1.json');
+    fs.copyFileSync(__dirname + '/../build/contracts/IBetFaucetV1.json', __dirname + '/../src/ibetapp/src/assets/IBetFaucetV1.json');
 };

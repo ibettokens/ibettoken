@@ -10,9 +10,9 @@ import { TransactionDialogComponent } from '../transaction-dialog/transaction-di
   styleUrls: ['./arbitrate-bet-main.component.scss']
 })
 export class ArbitrateBetMainComponent implements OnInit {
-  public pendingArbitrations: any[];
+  public pendingArbitrations: any[] = [];
   public isRegisteredAsArbitrator: boolean = true;
-  public submitting: boolean;
+  public submitting: boolean = false;
   constructor(@Inject(ContractService) private contractService: ContractService,
   private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
 
@@ -26,6 +26,8 @@ export class ArbitrateBetMainComponent implements OnInit {
     .catch(error =>{
       if(error != null && error.message=="NOTREGISTERED"){
         this.isRegisteredAsArbitrator = false;
+      }else{
+        alert(error);
       }
     });
   }

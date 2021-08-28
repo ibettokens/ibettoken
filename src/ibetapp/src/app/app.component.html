@@ -1,6 +1,6 @@
 <nav class="light-blue lighten-1" role="navigation">
   <div class="nav-wrapper container">
-    <div><a id="logo-container" href="#/" class="brand-logo">Crypto Bets</a></div>
+    <div><a id="logo-container" href="#/" class="brand-logo" style="white-space: nowrap;">Crypto Bets</a></div>
     <ul class="right hide-on-med-and-down">
       <li class="gmtWatch"></li>
       <li><a href="#/ibetcoins">IBET Coins</a></li>
@@ -8,7 +8,12 @@
       <li><a id="accept-bet-container-link" href="#/acceptbet">Accept Bet</a></li>
       <li><a id="arbitrate-bet-container-link" href="#/arbitratebet">Arbitrate Bet</a></li>
       <li><a id="my-bets-container-link" href="#/mybets">My Bets</a></li>
-      <li><button id="connect-wallet" class="btn" (click)="connect()">{{isConnected? "Connected": "Connect"}}</button></li>
+      <li>
+        <button id="connect-wallet" class="btn" *ngIf="isConnected==false" (click)="connect()">{{isConnected? "Connected": "Connect"}}</button>
+        <app-long-identifier-display  *ngIf="isConnected== true"
+        [Value]="connectedAccount"
+      ></app-long-identifier-display>
+      </li>
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
@@ -17,9 +22,21 @@
       <li><a id="accept-bet-container-link-nav" href="#/acceptbet">Accept Bet</a></li>
       <li><a id="arbitrate-bet-container-link-nav" href="#/arbitratebet">Arbitrate Bet</a></li>
       <li><a id="my-bets-container-link-nav" href="#/mybets">My Bets</a></li>
-      <li style="padding: 20px;"><button  id="connect-wallet-nav" class="btn"  (click)="connect()">{{isConnected? "Connected": "Connect"}}</button></li>
+      <li style="padding: 20px;">
+
+        <button  id="connect-wallet-nav" class="btn" *ngIf="isConnected==false" (click)="connect()">{{isConnected? "Connected": "Connect"}}</button>
+        <app-long-identifier-display style="color: black;"  *ngIf="isConnected== true"
+              [Value]="connectedAccount"
+            ></app-long-identifier-display>
+      </li>
     </ul>
     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
   </div>
 </nav>
+<div *ngIf="connectedNetwork != null && connectedNetwork!=137" style="padding: 10px;
+text-align: center;
+color: white;
+background-color: red;">
+  Wrong Network
+</div>
 <router-outlet></router-outlet>
