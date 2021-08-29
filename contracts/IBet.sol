@@ -40,7 +40,7 @@ function authorizeCaller(address _address) public onlyOwner {
    authorizedCallers[_address] = true;
 }
 
-function deAuthorizeCaller(address _address) private onlyOwner {
+function deAuthorizeCaller(address _address) public onlyOwner {
    authorizedCallers[_address] = false;
 }
 
