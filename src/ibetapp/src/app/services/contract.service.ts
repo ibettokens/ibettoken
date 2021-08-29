@@ -56,6 +56,7 @@ export class ContractService {
     this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
     let network = await this.web3js.eth.net.getId();
+    //let amount = await this.web3js.eth.getBalance();
     this.accountStatusSource.next({account:this.accounts[0], network: network});
    
     console.log('Network:' + network);
@@ -326,12 +327,12 @@ export class ContractService {
     // this.accounts = await this.web3js.eth.getAccounts();
     await this.connectAccount();
 
-    this.contract = new this.web3js.eth.Contract(
+    let contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
       environment.arbitrationAppAddress
     );
 
-    const result = await this.contract.methods
+    const result = await contract.methods
       .getMyPendingArbitrations()
       .call({ from: this.accounts[0] });
 
@@ -443,6 +444,7 @@ export class ContractService {
       IBetQueryV1.abi,
       environment.betQueryAddress
     );
+    this.contract.options.handleRevert = true;
 
     const result = await this.contract.methods
       .getOpenBets(year, (month+1), day)

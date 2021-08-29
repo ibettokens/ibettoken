@@ -23,17 +23,17 @@ export class AcceptBetMainComponent implements OnInit {
     @Inject(ContractService) private contractService: ContractService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.openBets = [];
     let self = this;
     this.startDate = new Date();
     this.endDate = new Date();
-    this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 30));
+    this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 10));
     let counter =0;
     for (let utcDate = this.contractService.getUTCDate(this.startDate); utcDate < self.endDate; utcDate.setDate(utcDate.getDate() + 1)) {
       //alert(utcDate);
      
-      this.contractService
+     await this.contractService
         .getOpenBets(
           utcDate.getUTCFullYear(),
           utcDate.getMonth(),

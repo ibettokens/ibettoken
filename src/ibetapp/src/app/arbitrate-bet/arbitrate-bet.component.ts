@@ -52,6 +52,7 @@ export class ArbitrateBetComponent implements OnInit {
             });
     })
     .catch(function(error: any){
+      console.log(error);
       var errorMessage = error.message ?? error;
       var matches = errorMessage.match('\{.*\:\{.*\:.*\}\}');
       let displayErrorMessage = matches !=null ? JSON.parse(matches[0]).value.data.message: errorMessage;

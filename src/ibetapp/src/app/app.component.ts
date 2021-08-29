@@ -18,14 +18,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.contractService.accountStatus$.subscribe(accountSt =>{
-      console.log(accountSt.account);
+      this.contractService.accountStatus$.subscribe(accountSt =>{
       this.connectedAccount= accountSt.account;
-if( this.connectedNetwork != accountSt.network)
-{
-      this.connectedNetwork = accountSt.network;
-}
-        this.isConnected = true;
+      if( this.connectedNetwork != accountSt.network)
+      {
+            this.connectedNetwork = accountSt.network;
+      }
+      this.isConnected = true;
     });
   }
 
