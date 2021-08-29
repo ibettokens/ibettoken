@@ -450,7 +450,6 @@ export class ContractService {
       .getOpenBets(year, (month+1), day)
       .call({ from: this.accounts[0] });
 
-    console.log('getOpenBets Result', result);
     let openBets = [];
     let resultArray = result.split('|');
     for (let i = 0; i < resultArray.length; i++) {

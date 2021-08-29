@@ -1,6 +1,7 @@
 const config = require('../assets/config.json');
 export const environment = {
   production: true,
+  chain: config.chain,
   iBetAddress : config.iBetAddress,
 	dataAddress : config.dataAddress,
 	betAppAddress: config.betAppAddress,
