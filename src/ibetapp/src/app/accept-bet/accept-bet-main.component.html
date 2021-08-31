@@ -59,27 +59,27 @@
 
 
   <div>
-    <table>
-      <thead>
-        <tr>
-          <td>Bet Key</td>
-          <td>Event</td>
-          <td># of Tokens</td>
-          <td></td>
-        </tr>
-      </thead>
-      <tbody id="open-bets-queue">
-        <tr *ngFor="let bet of openBets">
-          <td class="longIdentifier" id="{{ 'mybetsbetKey' + bet.betKey }}">
-            <app-long-identifier-display
-              [Value]="bet.betKey"
-            ></app-long-identifier-display>
-          </td>
-          <td>{{ bet.eventText }}<br />{{ bet.eventTime }}</td>
-          <td>{{ bet.amount }}</td>
-          <td><a routerLink="/acceptbet/{{ bet.betKey }}">View</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <div id="open-bets-queue">
+        <div *ngFor="let bet of openBets" class="row">
+          <div class="col m8 s12">
+          <div ><span style="font-weight: bold;">{{ bet.eventText }}</span><br /><span style="font-size: 8px;">{{ bet.eventTime }}</span></div>
+          
+          <div>Amount: {{ bet.amount }} IBET Coins</div>
+          <div><span style="display: inline;">Bet Key# </span><app-long-identifier-display style="display: inline;"
+            [Value]="bet.betKey"
+          ></app-long-identifier-display></div>
+        </div>
+         
+          <div class="col m4 s12">
+            <div>
+              <a class="btn"  style="float: right;" routerLink="/acceptbet/{{ bet.betKey }}">View</a></div>
+          </div>
+          <br style="clear: both;">
+          <br style="clear: both;">
+          <br style="clear: both;">
+        </div>
+      </div>
+    </div>
   </div>
 </div>

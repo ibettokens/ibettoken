@@ -123,6 +123,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromTimeStamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "toTimeStamp",
+						"type": "uint256"
+					}
+				],
+				"name": "getOpenBetsWithTimeStamp",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -288,11 +312,11 @@
 			]
 		},
 		"contracts/IBet.sol": {
-			"keccak256": "0x8104d2a5d26495b00e91f0e045f3771cf1f55ba5686332faa64246373b4b8a75",
+			"keccak256": "0x0c127678f93f9a972e3807a7f7df2278fd87069379e10451722af93ef5b56033",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b80e52d865458b00018d10e20df4f4b9bc43a691f9e2e5d09ca1ee2362e8af06",
-				"dweb:/ipfs/Qmc5NR4BGc3suB6kFADmzfcKJgmK5pa3br2r1WJ9vAWyBc"
+				"bzz-raw://563a3c1a8da0c67b863edb7fa0accc66645f984b08ab28463d20a213e19e9463",
+				"dweb:/ipfs/QmWb2nKrtePzDPGiTnV8S7ooxqeCNd6oRh1cG2zy8Uk6Mm"
 			]
 		},
 		"contracts/IBetData.sol": {
@@ -304,11 +328,11 @@
 			]
 		},
 		"contracts/IBetQueryV1.sol": {
-			"keccak256": "0xd958286481f4d87a70850662fc6f3ce664491da49c4a372cf41f37454cfe62da",
+			"keccak256": "0xafe31d56ef4303edc31da4e19b0426e3f0f2013d12ab86f563149773d171f4aa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ce94e7acf789ffe9ddaa4aca42bae242bc9072ac108e616eba39de2e8e8ce949",
-				"dweb:/ipfs/Qmedcth8i5bNAQKq64aGgGntLYF8oZBEPcDonsuLxcJ318"
+				"bzz-raw://7696c0f0e0844686f7112f7513f9ee831f01543a147abdf969105be46a07d4e5",
+				"dweb:/ipfs/QmcTNDTUBxNBz4QGEYb6phSEebpGEVvU72UhoW3PY54xxB"
 			]
 		},
 		"contracts/Lib.sol": {

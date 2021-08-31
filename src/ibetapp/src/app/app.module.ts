@@ -30,6 +30,7 @@ import { IbetCoinsComponent } from './ibet-coins/ibet-coins.component';
 import {MatListModule} from '@angular/material/list';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
       MatListModule,
       MatNativeDateModule,
       ReactiveFormsModule,
-      NgxDaterangepickerMd.forRoot()
+      NgxDaterangepickerMd.forRoot(),
+      MatCardModule
   ],
   providers: [ContractService],
   bootstrap: [AppComponent]

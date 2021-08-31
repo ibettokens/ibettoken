@@ -66,9 +66,9 @@ let network = this.getNetworkFromChainId(chainId);
     return this.accounts;
   }
   getNetworkFromChainId(chainId: any) {
-    if(chainId=="1337") return "Local";
-    if(chainId=="137") return "Polygon";
-    return "Unknown";
+    if(chainId=="1337") return `Local(${chainId})`;
+    if(chainId=="137") return `Polygon(${chainId})`;
+    return `Unknown(${chainId})`;
   }
 
   async createBet(bet: Bet) {
