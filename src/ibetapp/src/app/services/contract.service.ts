@@ -55,12 +55,20 @@ export class ContractService {
     this.provider = await this.web3Modal.connect(); // set provider
     this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
-    let network = await this.web3js.eth.net.getId();
-    //let amount = await this.web3js.eth.getBalance();
-    this.accountStatusSource.next({account:this.accounts[0], network: network});
+    //let network = await this.web3js.eth.net.getId();
    
-    console.log('Network:' + network);
+const chainId = await this.web3js.eth.getChainId();
+let network = this.getNetworkFromChainId(chainId);
+    //let amount = await this.web3js.eth.getBalance();
+    this.accountStatusSource.next({account:this.accounts[0], network: network, chainId: chainId});
+   
+    
     return this.accounts;
+  }
+  getNetworkFromChainId(chainId: any) {
+    if(chainId=="1337") return "Local";
+    if(chainId=="137") return "Polygon";
+    return "Unknown";
   }
 
   async createBet(bet: Bet) {
@@ -429,6 +437,42 @@ export class ContractService {
             reject(error);
         });
     });
+  }
+
+  async getOpenBetsWithTimeStamp(startDate : any, endDate : any) {
+    // this.provider = await this.web3Modal.connect(); // set provider
+    // this.web3js = new Web3(this.provider); // create web3 instance
+    // this.accounts = await this.web3js.eth.getAccounts();
+
+    await this.connectAccount();
+
+    
+
+    this.contract = new this.web3js.eth.Contract(
+      IBetQueryV1.abi,
+      environment.betQueryAddress
+    );
+ 
+    let eventTimeStart: any = Math.floor(startDate / 1000);
+    let eventTimeEnd: any = Math.floor(endDate / 1000);
+    const result = await this.contract.methods
+      .getOpenBetsWithTimeStamp(eventTimeStart, eventTimeEnd)
+      .call({ from: this.accounts[0] });
+
+    let openBets = [];
+    let resultArray = result.split('|');
+    for (let i = 0; i < resultArray.length; i++) {
+      if (i == resultArray.length - 1) continue;
+      let eventStr = resultArray[i];
+      let bet = eventStr.split(',');
+      openBets.push({
+        betKey: bet[0],
+        eventText: bet[2],
+        eventTime: new Date(bet[1] * 1000),
+        amount: bet[3] / 1000000000000000000
+      });
+    }
+    return openBets;
   }
 
   async getOpenBets(year : number, month : number, day: number) {

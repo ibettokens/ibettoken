@@ -28,18 +28,14 @@ export class AcceptBetMainComponent implements OnInit {
     let self = this;
     this.startDate = new Date();
     this.endDate = new Date();
-    this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 10));
+    this.endDate = new Date(this.endDate.setDate(this.endDate.getDate() + 15));
     let counter =0;
-    for (let utcDate = this.contractService.getUTCDate(this.startDate); utcDate < self.endDate; utcDate.setDate(utcDate.getDate() + 1)) {
-      //alert(utcDate);
-     
-     await this.contractService
-        .getOpenBets(
-          utcDate.getUTCFullYear(),
-          utcDate.getMonth(),
-          utcDate.getDate()
+    await this.contractService
+        .getOpenBetsWithTimeStamp(
+          this.startDate,
+          this.endDate
         )
-        .then((bets) => {
+        .then((bets: any[]) => {
           if (bets && bets.length > 0) {
             bets.forEach(bet => {
               self.openBets.push(Object.assign({},bet));
@@ -47,7 +43,7 @@ export class AcceptBetMainComponent implements OnInit {
             });
           }
         })
-        .catch((error) => {
+        .catch((error: any) => {
           if(counter==0)
           {
             counter++;
@@ -55,7 +51,33 @@ export class AcceptBetMainComponent implements OnInit {
           }
           console.log(error);
         });
-    }
+    
+    // for (let utcDate = this.contractService.getUTCDate(this.startDate); utcDate < self.endDate; utcDate.setDate(utcDate.getDate() + 1)) {
+    //   //alert(utcDate);
+     
+    //  await this.contractService
+    //     .getOpenBets(
+    //       utcDate.getUTCFullYear(),
+    //       utcDate.getMonth(),
+    //       utcDate.getDate()
+    //     )
+    //     .then((bets) => {
+    //       if (bets && bets.length > 0) {
+    //         bets.forEach(bet => {
+    //           self.openBets.push(Object.assign({},bet));
+             
+    //         });
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       if(counter==0)
+    //       {
+    //         counter++;
+    //         alert(error);
+    //       }
+    //       console.log(error);
+    //     });
+    // }
   }
 
   searchBet() {

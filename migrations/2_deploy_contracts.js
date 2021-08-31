@@ -45,7 +45,7 @@ module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(IBetArbitrationV1, IBetData.address,  {gas: 8000000000});
     await deployer.deploy(IBetEventOracleV1, IBetData.address,  {gas: 8000000000});
     let config = {
-        
+            chain: "1337",
             iBetAddress: IBet.address,
             dataAddress: IBetData.address,
             betAppAddress: IBetBettingV1.address,

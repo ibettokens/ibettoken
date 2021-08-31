@@ -14,7 +14,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   isConnected: boolean = false;
   connectedAccount: any;
   connectedNetwork: any;
-  isWrongNetwork: boolean = false;
+  connectedChain: any;
+  isWrongChain: boolean = false;
   constructor(@Inject(ContractService) private contractService: ContractService){
 
   }
@@ -25,7 +26,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       if( this.connectedNetwork != accountSt.network)
       {
             this.connectedNetwork = accountSt.network;
-            this.isWrongNetwork = this.connectedNetwork != null && this.connectedNetwork != environment.chain;
+            this.connectedChain = accountSt.chainId;
+            this.isWrongChain = this.connectedChain != null && this.connectedChain != environment.chain;
       }
       this.isConnected = true;
     });

@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "./IBetData.sol";
-import { Lib, ConversionUtil } from "./Lib.sol";
+import { Lib, ConversionUtil, DateTime } from "./Lib.sol";
 
 contract IBetQueryV1 is Ownable, Pausable {
    using SafeMath for uint256;
@@ -70,6 +70,26 @@ contract IBetQueryV1 is Ownable, Pausable {
          if(bet.eventTime > block.timestamp)
          {
             betsString = Lib.strConcat(betsString, ConversionUtil.bytes32ToString(betKey), ",",ConversionUtil.uintToString(bet.eventTime),",", bet.eventText, ",", ConversionUtil.uintToString(bet.amount),"|");
+         }
+      }
+      return betsString;
+   }
+
+   function getOpenBetsWithTimeStamp(uint256 fromTimeStamp, uint256 toTimeStamp) public view returns (string memory){
+      string memory betsString;
+      for(uint256 j = fromTimeStamp; j <= toTimeStamp; j = j + 86400)
+      {
+         ( uint256 yearI, uint256 monthI, uint256 dayI) = DateTime.timestampToDate(j);
+         uint16 year = uint16(yearI);
+         uint16 month = uint16(monthI);
+         uint16 day = uint16(dayI);
+         for(uint256 index = 0; index < sureBetData.getOpenBetsCount(year,month, day, 0); index++){
+            bytes32 betKey = sureBetData.getOpenBetAtIndex(year,month, day, 0, index);
+            Lib.Bet memory bet = sureBetData.getBet(betKey);
+            if(bet.eventTime > block.timestamp)
+            {
+               betsString = Lib.strConcat(betsString, ConversionUtil.bytes32ToString(betKey), ",",ConversionUtil.uintToString(bet.eventTime),",", bet.eventText, ",", ConversionUtil.uintToString(bet.amount),"|");
+            }
          }
       }
       return betsString;
