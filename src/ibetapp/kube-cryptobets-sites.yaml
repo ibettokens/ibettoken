@@ -1,0 +1,99 @@
+#########################################################################################
+#Crypto bets
+#########################################################################################
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cryptobetsservice
+  namespace: eberry
+spec:
+  selector:
+    app: cryptobets
+    tier: frontend
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80 
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptobets
+  namespace: eberry
+spec:
+  selector:
+    matchLabels:
+      app: cryptobets
+      tier: frontend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: cryptobets
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: cryptobetsimage
+        image: powersvr:5000/cryptobets-matic:latest
+        imagePullPolicy: Always  
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+        resources:
+            limits:
+                memory: 100Mi
+                cpu: 100m  
+            requests:
+                memory: 50Mi
+                cpu: 50m  
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/America/Chicago
+      imagePullSecrets:
+        - name: dockerpowersvrcred
+      nodeSelector:
+        kubernetes.io/hostname: lemonsvr
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cryptobets-web-ingress
+  namespace: eberry
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+  - hosts:
+    - cryptobets.fun   
+    secretName: tls--cryptobets-fun-ingress-ssl-cert
+  rules:
+  - host: cryptobets.fun
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cryptobets
+          servicePort: 80     
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cryptobets
+  namespace: eberry
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: cryptobets
+  minReplicas: 1
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 70
+
