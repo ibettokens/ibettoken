@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.17+commit.8df45f5f"
 	},
 	"language": "Solidity",
 	"output": {
@@ -316,11 +316,11 @@
 			]
 		},
 		"contracts/IBet.sol": {
-			"keccak256": "0x8104d2a5d26495b00e91f0e045f3771cf1f55ba5686332faa64246373b4b8a75",
+			"keccak256": "0x0c127678f93f9a972e3807a7f7df2278fd87069379e10451722af93ef5b56033",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b80e52d865458b00018d10e20df4f4b9bc43a691f9e2e5d09ca1ee2362e8af06",
-				"dweb:/ipfs/Qmc5NR4BGc3suB6kFADmzfcKJgmK5pa3br2r1WJ9vAWyBc"
+				"bzz-raw://563a3c1a8da0c67b863edb7fa0accc66645f984b08ab28463d20a213e19e9463",
+				"dweb:/ipfs/QmWb2nKrtePzDPGiTnV8S7ooxqeCNd6oRh1cG2zy8Uk6Mm"
 			]
 		},
 		"contracts/IBetArbitrationV1.sol": {

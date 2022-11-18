@@ -28,6 +28,8 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.connectedNetwork = accountSt.network;
             this.connectedChain = accountSt.chainId;
             this.isWrongChain = this.connectedChain != null && this.connectedChain != environment.chain;
+            console.log("conn:" + this.connectedChain);
+            console.log("env:" + environment.chain);
       }
       this.isConnected = true;
     });

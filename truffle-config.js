@@ -53,7 +53,7 @@ module.exports = {
       provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/d41a546a5f1a4ce9a89d26cc19ba5bf4`),
         network_id: 4,       // rinkeby's id
         "gas":      6500000,
-"gasPrice": 100000000000
+        "gasPrice": 100000000000
     },
      mumbai_testnet: {
       provider: () => new HDWalletProvider(mnemonic, `https://polygon-mumbai.infura.io/v3/d41a546a5f1a4ce9a89d26cc19ba5bf4`),

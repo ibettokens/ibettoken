@@ -1,1 +1,0 @@
- docker build -t powersvr:5000/cryptobets-matic -f Matic.Dockerfile .

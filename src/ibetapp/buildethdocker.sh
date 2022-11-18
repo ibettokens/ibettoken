@@ -1,0 +1,1 @@
+ docker build -t powersvr:5000/cryptobets-ethereum -f Ethereum.Dockerfile .
