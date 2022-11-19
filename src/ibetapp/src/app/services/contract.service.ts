@@ -23,6 +23,7 @@ export class ContractService {
   accounts: any;
   contract: any;
   web3Modal;
+  currentStdGasPrice: any = 30;
 
   private accountStatusSource = new Subject<any>();
   accountStatus$ = this.accountStatusSource.asObservable();
@@ -56,13 +57,12 @@ export class ContractService {
     this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
     //let network = await this.web3js.eth.net.getId();
-   
-const chainId = await this.web3js.eth.getChainId();
-let network = this.getNetworkFromChainId(chainId);
+    this.currentStdGasPrice = await this.web3js.eth.getGasPrice();
+    console.log("current gas price: " + this.currentStdGasPrice);
+    const chainId = await this.web3js.eth.getChainId();
+    let network = this.getNetworkFromChainId(chainId);
     //let amount = await this.web3js.eth.getBalance();
     this.accountStatusSource.next({account:this.accounts[0], network: network, chainId: chainId});
-   
-    
     return this.accounts;
   }
   getNetworkFromChainId(chainId: any) {
@@ -111,7 +111,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
-      environment.betAppAddress
+      environment.betAppAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
 
     let self = this;
@@ -197,7 +198,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
-      environment.betAppAddress
+      environment.betAppAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
     this.contract.options.handleRevert = true;
 
@@ -233,7 +235,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
-      environment.arbitrationAppAddress
+      environment.arbitrationAppAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
 
     let self = this;
@@ -268,7 +271,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
         IBetEventOracleV1.abi,
-        environment.oracleAddress
+        environment.oracleAddress,
+        {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
 
     let self = this;
@@ -302,7 +306,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetBettingV1.abi,
-      environment.betAppAddress
+      environment.betAppAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
     
 
@@ -380,7 +385,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetArbitrationV1.abi,
-      environment.arbitrationAppAddress
+      environment.arbitrationAppAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
 
     let self = this;
@@ -414,7 +420,8 @@ let network = this.getNetworkFromChainId(chainId);
 
     this.contract = new this.web3js.eth.Contract(
       IBetFaucetV1.abi,
-      environment.faucetAddress
+      environment.faucetAddress,
+      {gasPrice: this.currentStdGasPrice, from: this.accounts[0]}
     );
 
     let self = this;
