@@ -61,7 +61,7 @@
               "outputHashing": "all"
             },
             "matic": {
-              "outputPath": "dist/ibet-polygon-mainnet",
+              "outputPath": "dist/ibet-matic",
               "budgets": [
                 {
                   "type": "initial",
